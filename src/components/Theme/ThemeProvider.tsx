@@ -13,37 +13,51 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // Default to pure OLED black dark mode
-  const [theme, setThemeState] = useState<Theme>('dark');
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const saved = (localStorage.getItem('sqlite_studio_theme') || localStorage.getItem('sqlite_studio_theme_v1')) as Theme | null;
-    if (saved === 'light' || saved === 'dark') {
-      setThemeState(saved);
-      applyTheme(saved);
-    } else {
-      // Default to pure OLED black dark mode
-      applyTheme('dark');
+  // Initialize from document class or localStorage
+  const [theme, setThemeState] = useState<Theme>(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const saved = (localStorage.getItem('sqlite_studio_theme') || localStorage.getItem('sqlite_studio_theme_v1')) as Theme | null;
+        if (saved === 'light' || saved === 'dark') return saved;
+        if (document.documentElement.classList.contains('light')) return 'light';
+        if (document.documentElement.classList.contains('dark')) return 'dark';
+      } catch (e) {}
     }
-  }, []);
+    return 'dark';
+  });
 
   const applyTheme = (t: Theme) => {
+    if (typeof document === 'undefined') return;
     const root = document.documentElement;
     if (t === 'dark') {
       root.classList.add('dark');
       root.classList.remove('light');
+      root.style.colorScheme = 'dark';
     } else {
       root.classList.remove('dark');
       root.classList.add('light');
+      root.style.colorScheme = 'light';
     }
   };
 
+  useEffect(() => {
+    try {
+      const saved = (localStorage.getItem('sqlite_studio_theme') || localStorage.getItem('sqlite_studio_theme_v1')) as Theme | null;
+      if (saved === 'light' || saved === 'dark') {
+        setThemeState(saved);
+        applyTheme(saved);
+      } else {
+        applyTheme(theme);
+      }
+    } catch (e) {}
+  }, []);
+
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
-    localStorage.setItem('sqlite_studio_theme', newTheme);
-    localStorage.setItem('sqlite_studio_theme_v1', newTheme);
+    try {
+      localStorage.setItem('sqlite_studio_theme', newTheme);
+      localStorage.setItem('sqlite_studio_theme_v1', newTheme);
+    } catch (e) {}
     applyTheme(newTheme);
   };
 

@@ -11,12 +11,22 @@ interface ThemeToggleProps {
 
 export function ThemeToggle({ className = '', showLabel = false }: ThemeToggleProps) {
   const { theme, toggleTheme } = useTheme();
-  const isDark = theme === 'dark';
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Use mounted theme or fallback to true (dark by default)
+  const isDark = mounted ? theme === 'dark' : true;
 
   return (
     <button
       type="button"
-      onClick={toggleTheme}
+      onClick={(e) => {
+        e.preventDefault();
+        toggleTheme();
+      }}
       aria-label={isDark ? 'Switch to Light Mode' : 'Switch to Pure OLED Black Dark Mode'}
       title={isDark ? 'Switch to Light Mode' : 'Switch to Pure OLED Black Dark Mode'}
       className={`relative inline-flex items-center space-x-1.5 px-2.5 py-1.5 rounded-full text-xs font-medium transition-all duration-300 select-none cursor-pointer active:scale-95 ${

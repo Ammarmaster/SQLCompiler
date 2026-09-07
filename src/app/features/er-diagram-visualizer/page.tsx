@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Layers, Database, ArrowRight, Terminal, Key, Link2, Sparkles, CheckCircle2 } from 'lucide-react';
 import { MiniPlayground } from '../../../components/MiniPlayground';
+import { ThemeToggle } from '../../../components/Theme/ThemeToggle';
 
 export const metadata: Metadata = {
   title: 'Database Schema & ER Diagram Visualizer Online — SQLite Studio',
@@ -40,6 +41,7 @@ export default function ErDiagramFeaturePage() {
             <span className="font-bold text-sm tracking-tight">SQLite Studio</span>
           </Link>
           <div className="flex items-center space-x-3">
+            <ThemeToggle />
             <Link href="/" className="text-xs font-medium hover:text-[#007AFF]">
               Home
             </Link>

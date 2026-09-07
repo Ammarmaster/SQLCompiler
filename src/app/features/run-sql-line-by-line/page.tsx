@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Play, Database, ArrowRight, Terminal, Zap, CheckCircle2, Shield } from 'lucide-react';
 import { MiniPlayground } from '../../../components/MiniPlayground';
+import { ThemeToggle } from '../../../components/Theme/ThemeToggle';
 
 export const metadata: Metadata = {
   title: 'Line-by-Line SQL Execution — Run Queries from the Editor Gutter',
@@ -40,6 +41,7 @@ export default function RunSqlLineByLinePage() {
             <span className="font-bold text-sm tracking-tight">SQLite Studio</span>
           </Link>
           <div className="flex items-center space-x-3">
+            <ThemeToggle />
             <Link href="/" className="text-xs font-medium hover:text-[#007AFF]">
               Home
             </Link>

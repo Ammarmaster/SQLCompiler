@@ -18,6 +18,7 @@ import { ErDiagram } from './components/Schema/ErDiagram';
 import { QueryHistory } from './components/History/QueryHistory';
 import { DatabaseModal } from './components/Modals/DatabaseModal';
 import { HelpModal } from './components/Modals/HelpModal';
+import { useTheme } from './components/Theme/ThemeProvider';
 
 // Storage keys
 const TABS_STORAGE_KEY = 'sqlite_studio_tabs_v1';
@@ -121,12 +122,9 @@ SELECT id, name, stock_quantity FROM products WHERE id = 1;
 ];
 
 export function App() {
-  // Theme state
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
-    const saved = localStorage.getItem(THEME_STORAGE_KEY);
-    if (saved !== null) return saved === 'dark';
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
-  });
+  // Theme state from global ThemeProvider
+  const { theme, toggleTheme } = useTheme();
+  const isDarkMode = theme === 'dark';
 
   // Engine & Schema state
   const [isEngineReady, setIsEngineReady] = useState(false);
@@ -186,17 +184,6 @@ export function App() {
 
   // Editor imperative ref
   const editorRef = useRef<SqlEditorRef>(null);
-
-  // Sync theme with HTML class
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem(THEME_STORAGE_KEY, 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem(THEME_STORAGE_KEY, 'light');
-    }
-  }, [isDarkMode]);
 
   // Persist Tabs
   useEffect(() => {
@@ -490,7 +477,7 @@ export function App() {
       <IosNavbar
         schema={schema}
         isDarkMode={isDarkMode}
-        onToggleTheme={() => setIsDarkMode((d) => !d)}
+        onToggleTheme={toggleTheme}
         onOpenDbModal={() => setIsDbModalOpen(true)}
         onRunAll={handleRunAll}
         onShowQuickHelp={() => setIsHelpModalOpen(true)}

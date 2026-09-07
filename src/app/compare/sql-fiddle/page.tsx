@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Database, ArrowLeft, ArrowRight, Terminal, CheckCircle2, XCircle } from 'lucide-react';
+import { ThemeToggle } from '../../../components/Theme/ThemeToggle';
 
 export const metadata: Metadata = {
   title: 'SQLite Studio vs SQL Fiddle — Which Online SQL Tool is Better in 2026?',
@@ -20,13 +21,16 @@ export default function CompareSqlFiddlePage() {
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Home</span>
           </Link>
-          <Link
-            href="/app"
-            className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-white bg-[#007AFF] hover:bg-[#0062cc] transition-all"
-          >
-            <Terminal className="w-3 h-3" />
-            <span>Launch Studio</span>
-          </Link>
+          <div className="flex items-center space-x-3">
+            <ThemeToggle />
+            <Link
+              href="/app"
+              className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-white bg-[#007AFF] hover:bg-[#0062cc] transition-all"
+            >
+              <Terminal className="w-3 h-3" />
+              <span>Launch Studio</span>
+            </Link>
+          </div>
         </div>
       </header>
 
