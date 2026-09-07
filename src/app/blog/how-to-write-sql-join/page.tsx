@@ -30,7 +30,7 @@ export default function SqlJoinArticle() {
       name: 'SQLite Studio',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://sqlcompiler.jobsio.in/favicon.svg',
+        url: 'https://sqlcompiler.jobsio.in/app-icon.png',
       },
     },
   };
