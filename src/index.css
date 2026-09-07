@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --ios-bg: #F2F2F7;
+    --ios-card: #FFFFFF;
+    --ios-secondary-bg: #E5E5EA;
+    --ios-border: rgba(60, 60, 67, 0.12);
+    --ios-blue: #007AFF;
+    --ios-green: #34C759;
+    --ios-red: #FF3B30;
+    --ios-orange: #FF9500;
+    --ios-purple: #AF52DE;
+    --ios-teal: #30B0C7;
+  }
+
+  .dark {
+    --ios-bg: #000000;
+    --ios-card: #1C1C1E;
+    --ios-secondary-bg: #2C2C2E;
+    --ios-border: rgba(235, 235, 245, 0.12);
+    --ios-blue: #0A84FF;
+    --ios-green: #30D158;
+    --ios-red: #FF453A;
+    --ios-orange: #FF9F0A;
+    --ios-purple: #BF5AF2;
+    --ios-teal: #40CBE0;
+  }
+
+  * {
+    border-color: var(--ios-border);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  #root {
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+}
+
+/* Custom scrollbars mimicking macOS/iOS */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(142, 142, 147, 0.35);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(142, 142, 147, 0.55);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ===================================================
+   CodeMirror iOS Gutter Run Button & Editor Styling
+   =================================================== */
+
+.cm-editor {
+  height: 100% !important;
+  font-size: 13.5px !important;
+}
+
+.cm-scroller {
+  height: 100% !important;
+  overflow: auto !important;
+  font-family: "JetBrains Mono", Menlo, Monaco, Consolas, monospace !important;
+}
+
+.cm-run-gutter {
+  width: 28px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+.ios-gutter-run-btn {
+  width: 19px;
+  height: 19px;
+  border-radius: 9999px;
+  background: #007AFF;
+  color: white;
+  border: none;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  margin: 1px 0 0 4px;
+  box-shadow: 0 1px 3px rgba(0, 122, 255, 0.35);
+  opacity: 0.85;
+  transform: scale(0.92);
+  transition: transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              background-color 0.15s ease,
+              opacity 0.15s ease,
+              box-shadow 0.18s ease;
+}
+
+.dark .ios-gutter-run-btn {
+  background: #0A84FF;
+  box-shadow: 0 1px 4px rgba(10, 132, 255, 0.45);
+}
+
+.ios-gutter-run-btn:hover {
+  opacity: 1;
+  transform: scale(1.15);
+  background: #0062D2;
+  box-shadow: 0 2px 6px rgba(0, 122, 255, 0.5);
+}
+
+.dark .ios-gutter-run-btn:hover {
+  background: #0071E3;
+  box-shadow: 0 2px 8px rgba(10, 132, 255, 0.6);
+}
+
+.ios-gutter-run-btn:active,
+.ios-gutter-run-btn.ios-active {
+  transform: scale(0.86) !important;
+  transition-duration: 0.08s;
+}
+
+.ios-gutter-run-spacer {
+  width: 28px;
+  height: 18px;
+}
+
+/* Line flash highlights */
+.cm-flash-success {
+  background-color: rgba(52, 199, 89, 0.22) !important;
+  animation: flashFade 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.cm-flash-error {
+  background-color: rgba(255, 59, 48, 0.25) !important;
+  animation: flashFade 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes flashFade {
+  0% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
