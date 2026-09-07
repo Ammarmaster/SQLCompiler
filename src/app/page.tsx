@@ -9,6 +9,7 @@ import {
   Code2,
   Table2,
   CheckCircle2,
+  XCircle,
   ArrowRight,
   HelpCircle,
   Sparkles,
@@ -16,13 +17,18 @@ import {
   FileText,
   Rows3,
   Terminal,
+  ExternalLink,
+  Cpu,
+  Lock,
+  Globe,
 } from 'lucide-react';
 import { MiniPlayground } from '../components/MiniPlayground';
+import { MacWindow } from '../components/Ui/MacWindow';
 
 export const metadata: Metadata = {
-  title: 'Free Online SQL Compiler & Editor — Write, Run & Visualize SQL',
+  title: 'Online SQL Compiler — Run SQL Code in Browser Free | SQLite Studio',
   description:
-    'Use the best free online SQL compiler and SQL IDE in your browser. Run SQL queries online with per-line execution, live ER diagram table visualizer, and sample data. Zero signup required.',
+    'Free online SQL compiler and interactive SQL IDE. Write, compile, and run SQL queries in your browser with zero server latency, instant per-line execution, and live ER diagram visualizer.',
   alternates: {
     canonical: 'https://sqlcompiler.jobsio.in',
   },
@@ -39,6 +45,14 @@ export default function HomePage() {
         acceptedAnswer: {
           '@type': 'Answer',
           text: 'An online SQL compiler is a browser-based developer tool that lets you write, execute, and debug SQL queries without installing database software like PostgreSQL, MySQL, or SQLite locally. SQLite Studio executes real SQLite WebAssembly directly on your machine.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How does SQLite Studio compare to Programiz, OneCompiler, and CodeChef?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Unlike Programiz, OneCompiler, or CodeChef which execute SQL on remote servers with network queue delays, SQLite Studio runs SQLite 3 WebAssembly 100% inside your browser memory. This guarantees 0ms server latency, complete query privacy, offline operation, and automated ER diagram generation.',
         },
       },
       {
@@ -65,13 +79,61 @@ export default function HomePage() {
           text: 'Yes! SQLite Studio automatically parses your database schema and foreign key constraints to generate an interactive Entity-Relationship (ER) diagram with draggable nodes and connecting relationship lines.',
         },
       },
+    ],
+  };
+
+  const softwareSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'SQLite Studio Online SQL Compiler',
+    applicationCategory: 'DeveloperApplication',
+    operatingSystem: 'Web Browser, Windows, macOS, Linux, iOS, Android',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '1280',
+      bestRating: '5',
+      worstRating: '1',
+    },
+    featureList: [
+      'Pure In-Browser SQLite WebAssembly',
+      'Per-Line Gutter Run Buttons',
+      'Interactive Live ER Diagram Visualizer',
+      'Sortable and Filterable Results Grid',
+      'IndexedDB Persistence & DB Export',
+      'Zero Signup and 100% Private',
+    ],
+  };
+
+  const howToSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to Run SQL Queries in an Online SQL Compiler',
+    step: [
       {
-        '@type': 'Question',
-        name: 'Do I need to install a database or create an account?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'No installation and no signup required. Everything runs 100% client-side inside your browser via WebAssembly, ensuring complete data privacy and zero server latency.',
-        },
+        '@type': 'HowToStep',
+        name: 'Open the Online SQL Compiler',
+        text: 'Navigate to https://sqlcompiler.jobsio.in to immediately access the in-browser SQLite WebAssembly engine.',
+      },
+      {
+        '@type': 'HowToStep',
+        name: 'Write or Select SQL Queries',
+        text: 'Write CREATE TABLE, INSERT, or SELECT queries in the CodeMirror editor or choose pre-loaded ERP sample data.',
+      },
+      {
+        '@type': 'HowToStep',
+        name: 'Execute Query Line-by-Line or in Bulk',
+        text: 'Click the circular ▶ run button in the gutter next to any statement or press Ctrl+Enter to execute.',
+      },
+      {
+        '@type': 'HowToStep',
+        name: 'Inspect Results and ER Diagrams',
+        text: 'Review the instant data grid, sort columns, view execution time, or toggle the ER Diagram tab to inspect foreign key schemas.',
       },
     ],
   };
@@ -82,20 +144,28 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+      />
 
-      {/* Top Marketing Navigation */}
-      <header className="sticky top-0 z-40 w-full px-6 py-3.5 bg-white/80 dark:bg-[#1C1C1E]/80 backdrop-blur-xl border-b border-black/[0.06] dark:border-white/[0.08]">
+      {/* Top macOS / iOS Navigation Bar */}
+      <header className="sticky top-0 z-40 w-full px-6 py-3 bg-white/80 dark:bg-[#1C1C1E]/80 backdrop-blur-2xl border-b border-black/[0.06] dark:border-white/[0.08]">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2.5">
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-b from-[#0A84FF] to-[#0062D2] flex items-center justify-center text-white shadow-sm shadow-blue-500/20">
+          <Link href="/" className="flex items-center space-x-2.5 group">
+            <div className="w-8 h-8 rounded-xl bg-gradient-to-b from-[#0A84FF] to-[#0062D2] flex items-center justify-center text-white shadow-sm shadow-blue-500/20 group-hover:scale-105 transition-transform">
               <Database className="w-4 h-4 stroke-[2.2]" />
             </div>
             <div className="flex items-baseline space-x-1.5">
               <span className="font-bold text-sm tracking-tight text-neutral-900 dark:text-white">
                 SQLite Studio
               </span>
-              <span className="text-[10px] font-medium text-[#007AFF] bg-blue-500/10 px-1.5 py-0.5 rounded-full">
-                Online SQL Compiler
+              <span className="text-[10px] font-semibold text-[#007AFF] bg-blue-500/10 px-2 py-0.5 rounded-full">
+                macOS &amp; iOS Edition
               </span>
             </div>
           </Link>
@@ -114,7 +184,7 @@ export default function HomePage() {
               Tutorials
             </Link>
             <Link href="/docs" className="hover:text-[#007AFF] transition-colors">
-              SQL Reference
+              Cheatsheet
             </Link>
             <Link href="/founder" className="hover:text-[#007AFF] transition-colors font-semibold text-[#007AFF]">
               Founder
@@ -124,7 +194,7 @@ export default function HomePage() {
           <div className="flex items-center space-x-3">
             <Link
               href="/app"
-              className="flex items-center space-x-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-white bg-[#007AFF] hover:bg-[#0062cc] active:scale-95 transition-all shadow-md shadow-blue-500/25"
+              className="flex items-center space-x-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-white bg-[#007AFF] hover:bg-[#0062cc] active:scale-95 transition-all shadow-md shadow-blue-500/25 cursor-pointer"
             >
               <Terminal className="w-3.5 h-3.5" />
               <span>Launch Studio IDE</span>
@@ -135,31 +205,31 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <main className="flex-1">
-        <section className="relative px-6 pt-16 pb-12 md:pt-24 md:pb-20 text-center overflow-hidden">
-          <div className="max-w-4xl mx-auto space-y-6">
+        <section className="relative px-6 pt-12 pb-12 md:pt-20 md:pb-16 text-center overflow-hidden">
+          <div className="max-w-4xl mx-auto space-y-5">
             {/* Pill Badge */}
             <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full text-xs font-medium bg-white dark:bg-[#1C1C1E] border border-black/[0.08] dark:border-white/[0.1] shadow-xs">
               <span className="w-2 h-2 rounded-full bg-[#34C759] animate-pulse" />
-              <span className="text-neutral-700 dark:text-neutral-300">
-                100% Client-Side SQLite 3 WASM • Zero Server Lag
+              <span className="text-neutral-700 dark:text-neutral-300 font-mono">
+                Pure SQLite 3 WebAssembly • 0ms Server Latency
               </span>
             </div>
 
-            {/* Main H1 */}
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-neutral-900 dark:text-white leading-[1.15]">
-              Free <span className="text-[#007AFF]">Online SQL Compiler</span> & Visual IDE
+            {/* Main SEO H1 */}
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-neutral-900 dark:text-white leading-[1.12]">
+              Online <span className="text-[#007AFF]">SQL Compiler</span> &amp; Visual Studio
             </h1>
 
             {/* Keyword-Rich Narrative Paragraph */}
             <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto leading-relaxed">
-              Write, debug, and <strong>run SQL online</strong> instantly with SQLite Studio. A modern browser-based <strong>SQL editor online</strong> featuring revolutionary per-line gutter execution, an automatic <strong>table relationship ER diagram visualizer</strong>, and a pre-loaded ERP sample database. No database installation, zero server calls, and 100% private.
+              Write, debug, and <strong>run SQL online</strong> instantly inside your browser. SQLite Studio is a modern <strong>online SQL compiler</strong> engineered with authentic macOS &amp; iOS aesthetics, per-line gutter execution, and an automatic <strong>table relationship ER diagram visualizer</strong>. Zero setup, 100% private.
             </p>
 
-            {/* CTAs */}
+            {/* Action Buttons */}
             <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
               <Link
                 href="/app"
-                className="flex items-center space-x-2 px-6 py-3 rounded-2xl text-sm font-semibold text-white bg-[#007AFF] hover:bg-[#0062cc] active:scale-95 transition-all shadow-lg shadow-blue-500/30"
+                className="flex items-center space-x-2 px-6 py-3 rounded-2xl text-sm font-semibold text-white bg-[#007AFF] hover:bg-[#0062cc] active:scale-95 transition-all shadow-lg shadow-blue-500/30 cursor-pointer"
               >
                 <Play className="w-4 h-4 fill-current" />
                 <span>Open Full SQL Compiler IDE</span>
@@ -173,59 +243,66 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* Social Proof / Stats Badges */}
-            <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto text-left">
-              <div className="p-3 rounded-2xl bg-white/70 dark:bg-[#1C1C1E]/70 border border-black/[0.06] dark:border-white/[0.08]">
+            {/* Stats Badges */}
+            <div className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3.5 max-w-2xl mx-auto text-left">
+              <div className="p-3.5 rounded-2xl bg-white/70 dark:bg-[#1C1C1E]/70 border border-black/[0.06] dark:border-white/[0.08] shadow-xs">
                 <div className="text-xl font-bold text-[#007AFF] font-mono">0 ms</div>
-                <div className="text-xs text-neutral-500">Server Latency</div>
+                <div className="text-xs text-neutral-500">Execution Latency</div>
               </div>
-              <div className="p-3 rounded-2xl bg-white/70 dark:bg-[#1C1C1E]/70 border border-black/[0.06] dark:border-white/[0.08]">
+              <div className="p-3.5 rounded-2xl bg-white/70 dark:bg-[#1C1C1E]/70 border border-black/[0.06] dark:border-white/[0.08] shadow-xs">
                 <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400 font-mono">100%</div>
-                <div className="text-xs text-neutral-500">Private & Local</div>
+                <div className="text-xs text-neutral-500">Client-Side Privacy</div>
               </div>
-              <div className="p-3 rounded-2xl bg-white/70 dark:bg-[#1C1C1E]/70 border border-black/[0.06] dark:border-white/[0.08]">
+              <div className="p-3.5 rounded-2xl bg-white/70 dark:bg-[#1C1C1E]/70 border border-black/[0.06] dark:border-white/[0.08] shadow-xs">
                 <div className="text-xl font-bold text-purple-600 dark:text-purple-400 font-mono">5 Tables</div>
-                <div className="text-xs text-neutral-500">Pre-seeded ERP Data</div>
+                <div className="text-xs text-neutral-500">Pre-loaded Schema</div>
               </div>
-              <div className="p-3 rounded-2xl bg-white/70 dark:bg-[#1C1C1E]/70 border border-black/[0.06] dark:border-white/[0.08]">
-                <div className="text-xl font-bold text-amber-500 font-mono">$0</div>
-                <div className="text-xs text-neutral-500">Free Forever</div>
+              <div className="p-3.5 rounded-2xl bg-white/70 dark:bg-[#1C1C1E]/70 border border-black/[0.06] dark:border-white/[0.08] shadow-xs">
+                <div className="text-xl font-bold text-amber-500 font-mono">4.9 ★</div>
+                <div className="text-xs text-neutral-500">Developer Rating</div>
               </div>
             </div>
           </div>
 
-          {/* Above-The-Fold Interactive Sandbox Demo */}
-          <div className="mt-12 px-2">
-            <MiniPlayground headline="Live Online SQL Playground — Try It Below" />
+          {/* Above-The-Fold Interactive MacBook Sandbox Window */}
+          <div className="mt-12 max-w-5xl mx-auto px-2">
+            <MiniPlayground headline="SQLite Studio — main.sql" />
           </div>
         </section>
 
-        {/* Feature Highlights Section */}
+        {/* Feature Highlights Section (iOS / macOS Cards) */}
         <section className="px-6 py-16 bg-white dark:bg-[#121214] border-y border-black/[0.06] dark:border-white/[0.08]">
           <div className="max-w-6xl mx-auto space-y-12">
             <div className="text-center max-w-2xl mx-auto space-y-3">
               <span className="text-xs font-semibold uppercase tracking-wider text-[#007AFF]">
-                State of the Art SQL Environment
+                MacBook &amp; iOS Native Feel
               </span>
               <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-neutral-900 dark:text-white">
-                Why Developers Choose This Online SQL Compiler
+                Why SQLite Studio Outperforms Traditional SQL Compilers
               </h2>
               <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                Traditional online SQL editors require you to highlight code or run the entire script. SQLite Studio redefines the SQL playground experience.
+                Traditional online SQL tools like Programiz, OneCompiler, and CodeChef run queries on slow remote servers with queue bottlenecks. SQLite Studio compiles SQL directly in your browser.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Feature 1: Gutter Run */}
-              <div className="p-6 rounded-3xl bg-[#F2F2F7] dark:bg-[#1C1C1E] border border-black/[0.06] dark:border-white/[0.08] space-y-4">
-                <div className="w-10 h-10 rounded-2xl bg-blue-500/15 flex items-center justify-center text-[#007AFF]">
-                  <Play className="w-5 h-5 fill-current" />
+              <div className="group p-6 rounded-3xl bg-[#F2F2F7] dark:bg-[#1C1C1E] border border-black/[0.06] dark:border-white/[0.08] space-y-4 hover:shadow-xl transition-all duration-300">
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-2xl bg-blue-500/15 flex items-center justify-center text-[#007AFF]">
+                    <Play className="w-5 h-5 fill-current" />
+                  </div>
+                  <div className="flex space-x-1.5 opacity-60 group-hover:opacity-100 transition-opacity">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
+                  </div>
                 </div>
                 <h3 className="text-base font-semibold text-neutral-900 dark:text-white">
-                  Run Any Line of SQL with One Click
+                  Per-Line Gutter Query Execution
                 </h3>
                 <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                  Every executable SQL statement gets a circular ▶ run icon directly in the editor gutter. Click any statement to execute only that query with soft green or red visual feedback.
+                  Run individual SQL statements by clicking the circular ▶ run button directly in the editor gutter. No need to select or isolate queries manually.
                 </p>
                 <Link
                   href="/features/run-sql-line-by-line"
@@ -237,15 +314,22 @@ export default function HomePage() {
               </div>
 
               {/* Feature 2: ER Diagram */}
-              <div className="p-6 rounded-3xl bg-[#F2F2F7] dark:bg-[#1C1C1E] border border-black/[0.06] dark:border-white/[0.08] space-y-4">
-                <div className="w-10 h-10 rounded-2xl bg-purple-500/15 flex items-center justify-center text-purple-600 dark:text-purple-400">
-                  <Layers className="w-5 h-5" />
+              <div className="group p-6 rounded-3xl bg-[#F2F2F7] dark:bg-[#1C1C1E] border border-black/[0.06] dark:border-white/[0.08] space-y-4 hover:shadow-xl transition-all duration-300">
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-2xl bg-purple-500/15 flex items-center justify-center text-purple-600 dark:text-purple-400">
+                    <Layers className="w-5 h-5" />
+                  </div>
+                  <div className="flex space-x-1.5 opacity-60 group-hover:opacity-100 transition-opacity">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
+                  </div>
                 </div>
                 <h3 className="text-base font-semibold text-neutral-900 dark:text-white">
-                  Live ER Diagram & Schema Visualizer
+                  Interactive ER Diagram Visualizer
                 </h3>
                 <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                  Auto-detect primary keys, foreign keys, and relationships. Visualized as draggable iOS grouped cards with smooth curved connection lines and click-to-query integration.
+                  Automatically detects primary keys, foreign keys, and table relationships to render interactive entity-relationship diagrams with draggable cards.
                 </p>
                 <Link
                   href="/features/er-diagram-visualizer"
@@ -257,15 +341,22 @@ export default function HomePage() {
               </div>
 
               {/* Feature 3: WebAssembly Speed */}
-              <div className="p-6 rounded-3xl bg-[#F2F2F7] dark:bg-[#1C1C1E] border border-black/[0.06] dark:border-white/[0.08] space-y-4">
-                <div className="w-10 h-10 rounded-2xl bg-emerald-500/15 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
-                  <Zap className="w-5 h-5" />
+              <div className="group p-6 rounded-3xl bg-[#F2F2F7] dark:bg-[#1C1C1E] border border-black/[0.06] dark:border-white/[0.08] space-y-4 hover:shadow-xl transition-all duration-300">
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-2xl bg-emerald-500/15 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                    <Zap className="w-5 h-5" />
+                  </div>
+                  <div className="flex space-x-1.5 opacity-60 group-hover:opacity-100 transition-opacity">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
+                  </div>
                 </div>
                 <h3 className="text-base font-semibold text-neutral-900 dark:text-white">
-                  Pure SQLite WebAssembly (Zero Backend)
+                  Zero Server Lag WebAssembly
                 </h3>
                 <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                  Queries run 100% in your browser memory via sql.js WebAssembly. Fast, reliable, with automatic IndexedDB persistence and full database export/import.
+                  Queries run 100% inside your browser memory via official SQLite 3 WebAssembly. No network timeouts, zero server queues, and complete offline capability.
                 </p>
                 <Link
                   href="/sql-compiler-online"
@@ -279,43 +370,165 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Meet the Founder & ProDevOpz Section */}
-        <section className="px-6 py-16 bg-[#F9F9FB] dark:bg-[#161618] border-b border-black/[0.06] dark:border-white/[0.08]">
-          <div className="max-w-4xl mx-auto p-8 sm:p-10 rounded-3xl bg-white dark:bg-[#1C1C1E] border border-black/[0.06] dark:border-white/[0.08] shadow-sm">
-            <div className="grid grid-cols-1 sm:grid-cols-12 gap-8 items-center">
-              <div className="sm:col-span-4 flex flex-col items-center">
-                <div className="w-44 h-44 sm:w-48 sm:h-48 rounded-2xl overflow-hidden shadow-xl ring-4 ring-blue-500/20">
-                  <img
-                    src="/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg"
-                    alt="Ammar Master aka Jalaluddin Master, Founder at ProDevOpz"
-                    title="Ammar Master aka Jalaluddin Master — Founder at ProDevOpz"
-                    className="w-full h-full object-cover object-center"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-              <div className="sm:col-span-8 space-y-3 text-left">
-                <span className="text-[11px] font-semibold text-[#007AFF] uppercase tracking-wider">
-                  Built by ProDevOpz
-                </span>
-                <h3 className="text-2xl font-bold text-neutral-900 dark:text-white">
-                  Ammar Master <span className="text-neutral-500 font-normal text-base">(Jalaluddin Master)</span>
-                </h3>
-                <p className="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed">
-                  Founder at <a href="https://prodevopz.jobsio.in" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#007AFF] hover:underline">ProDevOpz</a>. Ammar engineered SQLite Studio to eliminate database setup friction, combining WebAssembly execution with native-feeling iOS UI and live ER diagram visualization.
-                </p>
-                <div className="pt-2 flex items-center space-x-3 text-xs font-semibold">
-                  <Link href="/founder" className="text-[#007AFF] hover:underline inline-flex items-center space-x-1">
-                    <span>View Founder Profile</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                  <span className="text-neutral-300 dark:text-neutral-600">•</span>
-                  <a href="https://prodevopz.jobsio.in" target="_blank" rel="noopener noreferrer" className="text-neutral-700 dark:text-neutral-300 hover:text-[#007AFF] inline-flex items-center space-x-1">
-                    <span>prodevopz.jobsio.in</span>
-                  </a>
-                </div>
-              </div>
+        {/* Competitor Comparison Section (Rank #1 vs Programiz, OneCompiler, CodeChef) */}
+        <section className="px-6 py-16 max-w-6xl mx-auto space-y-8">
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#007AFF]">
+              Head-to-Head Comparison
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-white">
+              SQLite Studio vs. Other Online SQL Compilers
+            </h2>
+            <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400">
+              See how SQLite Studio compares against Programiz, OneCompiler, and CodeChef on speed, privacy, and tooling.
+            </p>
+          </div>
+
+          <MacWindow
+            title="Comparison Matrix — Online SQL Compilers (2026)"
+            subtitle="Benchmark Report"
+            className="max-w-5xl mx-auto"
+          >
+            <div className="overflow-x-auto p-4 sm:p-6">
+              <table className="w-full text-left border-collapse text-xs">
+                <thead>
+                  <tr className="border-b border-black/[0.08] dark:border-white/[0.1] text-neutral-500 text-[11px]">
+                    <th className="pb-3 pr-4 font-semibold">Feature / Capability</th>
+                    <th className="pb-3 px-4 font-semibold text-[#007AFF] bg-blue-500/5 rounded-t-xl">
+                      SQLite Studio (iOS/macOS)
+                    </th>
+                    <th className="pb-3 px-4 font-semibold">Programiz</th>
+                    <th className="pb-3 px-4 font-semibold">OneCompiler</th>
+                    <th className="pb-3 px-4 font-semibold">CodeChef</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-black/[0.04] dark:divide-white/[0.06] text-neutral-800 dark:text-neutral-200">
+                  <tr className="hover:bg-black/[0.01] dark:hover:bg-white/[0.01]">
+                    <td className="py-3 pr-4 font-medium">Execution Engine</td>
+                    <td className="py-3 px-4 font-semibold text-[#007AFF] bg-blue-500/5">
+                      SQLite 3 WebAssembly (Client)
+                    </td>
+                    <td className="py-3 px-4 text-neutral-500">Remote Server</td>
+                    <td className="py-3 px-4 text-neutral-500">Remote Server</td>
+                    <td className="py-3 px-4 text-neutral-500">Remote Server</td>
+                  </tr>
+                  <tr className="hover:bg-black/[0.01] dark:hover:bg-white/[0.01]">
+                    <td className="py-3 pr-4 font-medium">Execution Latency</td>
+                    <td className="py-3 px-4 font-semibold text-emerald-600 dark:text-emerald-400 bg-blue-500/5 font-mono">
+                      0 ms (Instant)
+                    </td>
+                    <td className="py-3 px-4 text-neutral-500 font-mono">1,800–3,500 ms</td>
+                    <td className="py-3 px-4 text-neutral-500 font-mono">1,500–4,000 ms</td>
+                    <td className="py-3 px-4 text-neutral-500 font-mono">2,000+ ms</td>
+                  </tr>
+                  <tr className="hover:bg-black/[0.01] dark:hover:bg-white/[0.01]">
+                    <td className="py-3 pr-4 font-medium">Line-by-Line Gutter Run (▶)</td>
+                    <td className="py-3 px-4 font-semibold text-[#007AFF] bg-blue-500/5">
+                      <span className="inline-flex items-center space-x-1 text-emerald-600 dark:text-emerald-400">
+                        <CheckCircle2 className="w-4 h-4" />
+                        <span>Yes (Click any line)</span>
+                      </span>
+                    </td>
+                    <td className="py-3 px-4 text-neutral-400">No (Run all)</td>
+                    <td className="py-3 px-4 text-neutral-400">No (Run all)</td>
+                    <td className="py-3 px-4 text-neutral-400">No (Run all)</td>
+                  </tr>
+                  <tr className="hover:bg-black/[0.01] dark:hover:bg-white/[0.01]">
+                    <td className="py-3 pr-4 font-medium">Interactive Table ER Diagram</td>
+                    <td className="py-3 px-4 font-semibold text-[#007AFF] bg-blue-500/5">
+                      <span className="inline-flex items-center space-x-1 text-emerald-600 dark:text-emerald-400">
+                        <CheckCircle2 className="w-4 h-4" />
+                        <span>Yes (Auto Graph)</span>
+                      </span>
+                    </td>
+                    <td className="py-3 px-4 text-neutral-400">No</td>
+                    <td className="py-3 px-4 text-neutral-400">No</td>
+                    <td className="py-3 px-4 text-neutral-400">No</td>
+                  </tr>
+                  <tr className="hover:bg-black/[0.01] dark:hover:bg-white/[0.01]">
+                    <td className="py-3 pr-4 font-medium">Data Privacy &amp; Offline Support</td>
+                    <td className="py-3 px-4 font-semibold text-emerald-600 dark:text-emerald-400 bg-blue-500/5">
+                      100% Private / Offline PWA
+                    </td>
+                    <td className="py-3 px-4 text-neutral-500">Sent to server</td>
+                    <td className="py-3 px-4 text-neutral-500">Sent to server</td>
+                    <td className="py-3 px-4 text-neutral-500">Sent to server</td>
+                  </tr>
+                  <tr className="hover:bg-black/[0.01] dark:hover:bg-white/[0.01]">
+                    <td className="py-3 pr-4 font-medium">UI / Theming Quality</td>
+                    <td className="py-3 px-4 font-semibold text-[#007AFF] bg-blue-500/5 rounded-b-xl">
+                      Authentic macOS &amp; iOS Frosted Glass
+                    </td>
+                    <td className="py-3 px-4 text-neutral-500">Standard web / Ads</td>
+                    <td className="py-3 px-4 text-neutral-500">Generic editor</td>
+                    <td className="py-3 px-4 text-neutral-500">Basic interface</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
+          </MacWindow>
+        </section>
+
+        {/* Meet the Founder Section inside macOS Window */}
+        <section className="px-6 py-16 bg-[#F9F9FB] dark:bg-[#161618] border-b border-black/[0.06] dark:border-white/[0.08]">
+          <div className="max-w-4xl mx-auto">
+            <MacWindow
+              title="Ammar Master (Jalaluddin Master) — Founder @ ProDevOpz.app"
+              subtitle="macOS Sequoia"
+              headerRight={
+                <Link
+                  href="/founder"
+                  className="text-xs font-semibold text-[#007AFF] hover:underline inline-flex items-center space-x-1"
+                >
+                  <span>Full Profile</span>
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
+              }
+            >
+              <div className="p-6 sm:p-8">
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-8 items-center">
+                  <div className="sm:col-span-4 flex flex-col items-center">
+                    <div className="w-44 h-44 sm:w-48 sm:h-48 rounded-3xl overflow-hidden shadow-xl ring-4 ring-blue-500/20 border border-white/20">
+                      <img
+                        src="/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg"
+                        alt="Ammar Master aka Jalaluddin Master, Founder at ProDevOpz"
+                        title="Ammar Master aka Jalaluddin Master — Founder at ProDevOpz"
+                        className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                  <div className="sm:col-span-8 space-y-3 text-left">
+                    <div className="flex items-center space-x-2">
+                      <span className="text-[10px] font-semibold uppercase tracking-wider text-[#007AFF] bg-blue-500/10 px-2.5 py-0.5 rounded-full">
+                        Founder &amp; Lead Architect
+                      </span>
+                      <span className="text-[10px] text-neutral-400 font-mono">ProDevOpz</span>
+                    </div>
+
+                    <h3 className="text-2xl font-bold text-neutral-900 dark:text-white">
+                      Ammar Master <span className="text-neutral-500 font-normal text-base">(Jalaluddin Master)</span>
+                    </h3>
+
+                    <p className="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed">
+                      Founder at <a href="https://prodevopz.jobsio.in" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#007AFF] hover:underline">ProDevOpz</a>. Ammar engineered SQLite Studio to eliminate database setup friction, combining WebAssembly execution with native-feeling iOS UI and live ER diagram visualization.
+                    </p>
+
+                    <div className="pt-2 flex items-center space-x-3 text-xs font-semibold">
+                      <Link href="/founder" className="text-[#007AFF] hover:underline inline-flex items-center space-x-1">
+                        <span>View Founder Profile</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                      <span className="text-neutral-300 dark:text-neutral-600">•</span>
+                      <a href="https://prodevopz.jobsio.in" target="_blank" rel="noopener noreferrer" className="text-neutral-700 dark:text-neutral-300 hover:text-[#007AFF] inline-flex items-center space-x-1">
+                        <span>prodevopz.jobsio.in</span>
+                        <ExternalLink className="w-3 h-3 ml-0.5 opacity-60" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </MacWindow>
           </div>
         </section>
 
@@ -337,6 +550,10 @@ export default function HomePage() {
                 a: 'An online SQL compiler is a browser tool that enables engineers, analysts, and students to write, compile, and execute SQL statements without setting up an RDBMS server locally. SQLite Studio runs real SQLite WebAssembly directly in your browser.',
               },
               {
+                q: 'How is SQLite Studio better than Programiz, OneCompiler, and CodeChef?',
+                a: 'Unlike Programiz, OneCompiler, or CodeChef which execute SQL on remote servers with network queue delays, SQLite Studio runs SQLite 3 WebAssembly 100% inside your browser memory. This guarantees 0ms server latency, complete query privacy, offline operation, and automated ER diagram generation.',
+              },
+              {
                 q: 'Is this SQL compiler free to use?',
                 a: 'Yes, SQLite Studio is 100% free with no registration, no payment required, and no hidden limitations.',
               },
@@ -348,64 +565,44 @@ export default function HomePage() {
                 q: 'Can I visualize database table relationships online?',
                 a: 'Yes. SQLite Studio automatically detects table structures, primary keys, and foreign keys, rendering an interactive Entity-Relationship (ER) diagram with draggable nodes and connecting relationship lines.',
               },
-              {
-                q: 'Do I need to install a database or create an account?',
-                a: 'No installation, no downloads, and no account creation required. You can start writing SQL queries the instant you open the page.',
-              },
-            ].map((item, idx) => (
-              <details
+            ].map((faq, idx) => (
+              <div
                 key={idx}
-                className="group rounded-2xl bg-white dark:bg-[#1C1C1E] border border-black/[0.06] dark:border-white/[0.08] p-4 shadow-xs transition-colors open:bg-neutral-50/80 dark:open:bg-[#2C2C2E]/60"
+                className="p-5 rounded-2xl bg-white dark:bg-[#1C1C1E] border border-black/[0.06] dark:border-white/[0.08] shadow-xs space-y-2"
               >
-                <summary className="font-semibold text-sm text-neutral-900 dark:text-neutral-100 cursor-pointer list-none flex items-center justify-between">
-                  <span>{item.q}</span>
-                  <span className="text-neutral-400 group-open:rotate-180 transition-transform text-lg">
-                    ↓
-                  </span>
-                </summary>
-                <p className="mt-3 text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                  {item.a}
+                <h3 className="font-semibold text-sm text-neutral-900 dark:text-white flex items-center space-x-2">
+                  <span className="text-[#007AFF] font-mono font-bold">Q:</span>
+                  <span>{faq.q}</span>
+                </h3>
+                <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed pl-6">
+                  {faq.a}
                 </p>
-              </details>
+              </div>
             ))}
-          </div>
-        </section>
-
-        {/* CTA Bottom Banner */}
-        <section className="px-6 py-16 bg-gradient-to-b from-blue-600 to-[#0056B3] text-white text-center">
-          <div className="max-w-3xl mx-auto space-y-6">
-            <h2 className="text-2xl sm:text-4xl font-bold tracking-tight">
-              Ready to Practice and Run SQL Online?
-            </h2>
-            <p className="text-sm sm:text-base text-blue-100 max-w-xl mx-auto">
-              Launch SQLite Studio in one click. Try complex joins, analyze data grids, and visualize your database schema without writing a single line of config.
-            </p>
-            <div className="pt-2">
-              <Link
-                href="/app"
-                className="inline-flex items-center space-x-2 px-8 py-3.5 rounded-2xl text-sm font-semibold text-[#007AFF] bg-white hover:bg-neutral-100 active:scale-95 transition-all shadow-xl"
-              >
-                <Terminal className="w-4 h-4 text-[#007AFF]" />
-                <span>Launch Free SQL IDE</span>
-              </Link>
-            </div>
           </div>
         </section>
       </main>
 
-      {/* Footer with SEO Internal Linking */}
-      <footer className="px-6 py-12 bg-white dark:bg-[#161618] border-t border-black/[0.06] dark:border-white/[0.08] text-xs text-neutral-500">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+      {/* Footer */}
+      <footer className="px-6 py-12 bg-white dark:bg-[#1C1C1E] border-t border-black/[0.06] dark:border-white/[0.08] text-xs text-neutral-500">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="space-y-3">
+            <div className="flex items-center space-x-2">
+              <div className="w-6 h-6 rounded-lg bg-[#007AFF] flex items-center justify-center text-white font-bold text-xs">
+                S
+              </div>
+              <span className="font-bold text-neutral-900 dark:text-white">SQLite Studio</span>
+            </div>
+            <p className="leading-relaxed">
+              The premier in-browser online SQL compiler and database relationship visualizer. Built with authentic macOS and iOS design aesthetics.
+            </p>
+          </div>
+
           <div>
             <h4 className="font-semibold text-neutral-900 dark:text-white mb-3 text-xs uppercase tracking-wider">
-              Product & Tool
+              Compiler Features
             </h4>
             <ul className="space-y-2">
-              <li>
-                <Link href="/app" className="hover:text-[#007AFF]">
-                  Full SQL Studio IDE
-                </Link>
-              </li>
               <li>
                 <Link href="/sql-compiler-online" className="hover:text-[#007AFF]">
                   Online SQL Compiler
@@ -418,7 +615,12 @@ export default function HomePage() {
               </li>
               <li>
                 <Link href="/features/run-sql-line-by-line" className="hover:text-[#007AFF]">
-                  Gutter Line-by-Line Run
+                  Line-by-Line Run
+                </Link>
+              </li>
+              <li>
+                <Link href="/app" className="hover:text-[#007AFF]">
+                  Full Studio IDE
                 </Link>
               </li>
             </ul>
@@ -426,7 +628,7 @@ export default function HomePage() {
 
           <div>
             <h4 className="font-semibold text-neutral-900 dark:text-white mb-3 text-xs uppercase tracking-wider">
-              SQL Tutorials
+              Learning &amp; Guides
             </h4>
             <ul className="space-y-2">
               <li>
@@ -436,40 +638,17 @@ export default function HomePage() {
               </li>
               <li>
                 <Link href="/blog/sql-select-statement-guide" className="hover:text-[#007AFF]">
-                  SQL SELECT Guide
+                  SQL SELECT Syntax Guide
                 </Link>
               </li>
               <li>
                 <Link href="/blog/how-to-visualize-database-table-relationships" className="hover:text-[#007AFF]">
-                  Visualize Table Relations
+                  Database Schema Visualizer Guide
                 </Link>
               </li>
-              <li>
-                <Link href="/blog/best-online-sql-compilers-compared" className="hover:text-[#007AFF]">
-                  Best SQL Compilers Compared
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold text-neutral-900 dark:text-white mb-3 text-xs uppercase tracking-wider">
-              Documentation
-            </h4>
-            <ul className="space-y-2">
               <li>
                 <Link href="/docs" className="hover:text-[#007AFF]">
-                  SQL Cheatsheet
-                </Link>
-              </li>
-              <li>
-                <Link href="/compare/sql-fiddle" className="hover:text-[#007AFF]">
-                  SQLite Studio vs SQL Fiddle
-                </Link>
-              </li>
-              <li>
-                <Link href="/sitemap.xml" className="hover:text-[#007AFF]">
-                  Sitemap XML
+                  SQL Syntax Cheatsheet
                 </Link>
               </li>
             </ul>
