@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'Learn how to visualize SQL database schemas, foreign keys, and table relationships. Compare manual schema mapping vs automated browser ER diagram tools.',
   alternates: {
-    canonical: 'https://sqlitestudio.app/blog/how-to-visualize-database-table-relationships',
+    canonical: 'https://sqlcompiler.jobsio.in/blog/how-to-visualize-database-table-relationships',
   },
 };
 

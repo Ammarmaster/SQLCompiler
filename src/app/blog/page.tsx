@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Learn SQL with live interactive tutorials. Master SQL JOINs, SELECT queries, database schema visualization, and best practices with runnable examples.',
   alternates: {
-    canonical: 'https://sqlitestudio.app/blog',
+    canonical: 'https://sqlcompiler.jobsio.in/blog',
   },
 };
 
@@ -55,8 +55,8 @@ export default function BlogIndexPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sqlitestudio.app' },
-      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://sqlitestudio.app/blog' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sqlcompiler.jobsio.in' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://sqlcompiler.jobsio.in/blog' },
     ],
   };
 

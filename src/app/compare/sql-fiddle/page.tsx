@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Compare SQLite Studio and SQL Fiddle. Discover why SQLite Studio is the top modern alternative with in-browser WebAssembly, line-by-line run, and live ER diagrams.',
   alternates: {
-    canonical: 'https://sqlitestudio.app/compare/sql-fiddle',
+    canonical: 'https://sqlcompiler.jobsio.in/compare/sql-fiddle',
   },
 };
 

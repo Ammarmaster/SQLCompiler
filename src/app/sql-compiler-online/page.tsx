@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'Free online SQL compiler and interactive SQL playground. Run SQL queries online with zero setup, instant execution, ERP sample tables, and visual ER diagrams.',
   alternates: {
-    canonical: 'https://sqlitestudio.app/sql-compiler-online',
+    canonical: 'https://sqlcompiler.jobsio.in/sql-compiler-online',
   },
 };
 
@@ -21,13 +21,13 @@ export default function SqlCompilerOnlinePage() {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://sqlitestudio.app',
+        item: 'https://sqlcompiler.jobsio.in',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Online SQL Compiler',
-        item: 'https://sqlitestudio.app/sql-compiler-online',
+        item: 'https://sqlcompiler.jobsio.in/sql-compiler-online',
       },
     ],
   };

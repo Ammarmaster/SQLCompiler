@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'Auto-generate interactive entity-relationship (ER) diagrams from live SQL tables. Visualize foreign key relations, primary keys, and table schemas online free.',
   alternates: {
-    canonical: 'https://sqlitestudio.app/features/er-diagram-visualizer',
+    canonical: 'https://sqlcompiler.jobsio.in/features/er-diagram-visualizer',
   },
 };
 
@@ -17,9 +17,9 @@ export default function ErDiagramFeaturePage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sqlitestudio.app' },
-      { '@type': 'ListItem', position: 2, name: 'Features', item: 'https://sqlitestudio.app/features' },
-      { '@type': 'ListItem', position: 3, name: 'ER Diagram Visualizer', item: 'https://sqlitestudio.app/features/er-diagram-visualizer' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sqlcompiler.jobsio.in' },
+      { '@type': 'ListItem', position: 2, name: 'Features', item: 'https://sqlcompiler.jobsio.in/features' },
+      { '@type': 'ListItem', position: 3, name: 'ER Diagram Visualizer', item: 'https://sqlcompiler.jobsio.in/features/er-diagram-visualizer' },
     ],
   };
 

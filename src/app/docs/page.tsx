@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'Complete SQL cheatsheet and quick reference. Syntax and examples for SELECT, JOINs, WHERE, GROUP BY, aggregates, and table creation.',
   alternates: {
-    canonical: 'https://sqlitestudio.app/docs',
+    canonical: 'https://sqlcompiler.jobsio.in/docs',
   },
 };
 
@@ -17,8 +17,8 @@ export default function DocsPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sqlitestudio.app' },
-      { '@type': 'ListItem', position: 2, name: 'Docs', item: 'https://sqlitestudio.app/docs' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sqlcompiler.jobsio.in' },
+      { '@type': 'ListItem', position: 2, name: 'Docs', item: 'https://sqlcompiler.jobsio.in/docs' },
     ],
   };
 

@@ -30,17 +30,17 @@ export const metadata: Metadata = {
     'Jalaluddin Master software engineer',
   ],
   alternates: {
-    canonical: 'https://sqlitestudio.app/founder',
+    canonical: 'https://sqlcompiler.jobsio.in/founder',
   },
   openGraph: {
     title: 'Ammar Master (Jalaluddin Master) — Founder at ProDevOpz',
     description:
       'Founder at ProDevOpz and creator of SQLite Studio. Exploring modern web architecture, SQLite WebAssembly, and developer tooling.',
-    url: 'https://sqlitestudio.app/founder',
+    url: 'https://sqlcompiler.jobsio.in/founder',
     type: 'profile',
     images: [
       {
-        url: 'https://sqlitestudio.app/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg',
+        url: 'https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg',
         width: 1000,
         height: 1000,
         alt: 'Ammar Master aka Jalaluddin Master, Founder at ProDevOpz',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     title: 'Ammar Master (Jalaluddin Master) — Founder at ProDevOpz',
     description:
       'Founder at ProDevOpz and creator of SQLite Studio. Discover our work in software engineering and cloud developer tooling.',
-    images: ['https://sqlitestudio.app/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg'],
+    images: ['https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg'],
   },
 };
 
@@ -68,8 +68,8 @@ export default function FounderPage() {
       name: 'ProDevOpz',
       url: 'https://prodevopz.jobsio.in',
     },
-    image: 'https://sqlitestudio.app/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg',
-    url: 'https://sqlitestudio.app/founder',
+    image: 'https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg',
+    url: 'https://sqlcompiler.jobsio.in/founder',
     description:
       'Ammar Master (also known as Jalaluddin Master) is the Founder & Lead Architect at ProDevOpz, specializing in cloud architectures, DevOps, developer platforms, and high-performance web tooling like SQLite Studio.',
     sameAs: [
@@ -91,7 +91,7 @@ export default function FounderPage() {
   const imageSchema = {
     '@context': 'https://schema.org',
     '@type': 'ImageObject',
-    contentUrl: 'https://sqlitestudio.app/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg',
+    contentUrl: 'https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg',
     name: 'Ammar Master aka Jalaluddin Master, Founder at ProDevOpz',
     caption: 'Ammar Master (Jalaluddin Master), Founder & Lead Architect at ProDevOpz',
     author: {
@@ -104,8 +104,8 @@ export default function FounderPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sqlitestudio.app' },
-      { '@type': 'ListItem', position: 2, name: 'Founder', item: 'https://sqlitestudio.app/founder' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sqlcompiler.jobsio.in' },
+      { '@type': 'ListItem', position: 2, name: 'Founder', item: 'https://sqlcompiler.jobsio.in/founder' },
     ],
   };
 

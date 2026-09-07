@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'Learn how to write SQL JOIN queries with live interactive examples. Master INNER JOIN, LEFT JOIN, and multi-table joins using our online SQL compiler.',
   alternates: {
-    canonical: 'https://sqlitestudio.app/blog/how-to-write-sql-join',
+    canonical: 'https://sqlcompiler.jobsio.in/blog/how-to-write-sql-join',
   },
 };
 
@@ -29,7 +29,7 @@ export default function SqlJoinArticle() {
       name: 'SQLite Studio',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://sqlitestudio.app/favicon.svg',
+        url: 'https://sqlcompiler.jobsio.in/favicon.svg',
       },
     },
   };

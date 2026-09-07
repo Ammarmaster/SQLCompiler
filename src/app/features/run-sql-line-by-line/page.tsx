@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'Run SQL statements individually with one click. SQLite Studio features circular run buttons in the editor gutter for instant per-line query execution.',
   alternates: {
-    canonical: 'https://sqlitestudio.app/features/run-sql-line-by-line',
+    canonical: 'https://sqlcompiler.jobsio.in/features/run-sql-line-by-line',
   },
 };
 
@@ -17,9 +17,9 @@ export default function RunSqlLineByLinePage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sqlitestudio.app' },
-      { '@type': 'ListItem', position: 2, name: 'Features', item: 'https://sqlitestudio.app/features' },
-      { '@type': 'ListItem', position: 3, name: 'Line-by-Line SQL Execution', item: 'https://sqlitestudio.app/features/run-sql-line-by-line' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sqlcompiler.jobsio.in' },
+      { '@type': 'ListItem', position: 2, name: 'Features', item: 'https://sqlcompiler.jobsio.in/features' },
+      { '@type': 'ListItem', position: 3, name: 'Line-by-Line SQL Execution', item: 'https://sqlcompiler.jobsio.in/features/run-sql-line-by-line' },
     ],
   };
 

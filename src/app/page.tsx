@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   description:
     'Use the best free online SQL compiler and SQL IDE in your browser. Run SQL queries online with per-line execution, live ER diagram table visualizer, and sample data. Zero signup required.',
   alternates: {
-    canonical: 'https://sqlitestudio.app',
+    canonical: 'https://sqlcompiler.jobsio.in',
   },
 };
 

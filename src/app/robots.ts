@@ -17,6 +17,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://sqlitestudio.app/sitemap.xml',
+    sitemap: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://sqlcompiler.jobsio.in'}/sitemap.xml`,
   };
 }

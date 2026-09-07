@@ -3,7 +3,7 @@ import Script from 'next/script';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://sqlitestudio.app'),
+  metadataBase: new URL('https://sqlcompiler.jobsio.in'),
   title: {
     default: 'Free Online SQL Compiler & Editor — SQLite Studio',
     template: '%s | SQLite Studio',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://sqlitestudio.app',
+    url: 'https://sqlcompiler.jobsio.in',
     siteName: 'SQLite Studio',
     title: 'Free Online SQL Compiler & Editor — SQLite Studio',
     description:
@@ -45,7 +45,10 @@ export const metadata: Metadata = {
       'Run SQL queries online with zero setup. In-browser SQLite WebAssembly engine, interactive table ER diagrams, and instant per-line query execution.',
   },
   alternates: {
-    canonical: 'https://sqlitestudio.app',
+    canonical: 'https://sqlcompiler.jobsio.in',
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',
   },
   robots: {
     index: true,

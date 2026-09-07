@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'Master the SQL SELECT query with live interactive examples. Learn WHERE filtering, ORDER BY sorting, GROUP BY aggregations, and LIMIT clauses.',
   alternates: {
-    canonical: 'https://sqlitestudio.app/blog/sql-select-statement-guide',
+    canonical: 'https://sqlcompiler.jobsio.in/blog/sql-select-statement-guide',
   },
 };
 

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Comprehensive comparison of the best free online SQL compilers: SQLite Studio vs SQL Fiddle vs DB Fiddle vs Programiz. Features, execution speed, and privacy.',
   alternates: {
-    canonical: 'https://sqlitestudio.app/blog/best-online-sql-compilers-compared',
+    canonical: 'https://sqlcompiler.jobsio.in/blog/best-online-sql-compilers-compared',
   },
 };
 
