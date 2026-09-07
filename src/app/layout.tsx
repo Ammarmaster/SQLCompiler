@@ -31,8 +31,17 @@ export const metadata: Metadata = {
   authors: [{ name: 'SQLite Studio Team' }],
   creator: 'SQLite Studio',
   publisher: 'SQLite Studio',
-  applicationName: 'SQLite Studio',
   manifest: '/manifest.json',
+  icons: {
+    icon: [
+      { url: '/app-icon.jpg', sizes: '512x512', type: 'image/jpeg' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/app-icon.jpg',
+    apple: [
+      { url: '/apple-touch-icon.jpg', sizes: '180x180', type: 'image/jpeg' },
+    ],
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',

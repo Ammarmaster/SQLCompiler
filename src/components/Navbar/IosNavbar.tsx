@@ -33,8 +33,8 @@ export const IosNavbar: React.FC<IosNavbarProps> = ({
       <div className="flex items-center space-x-3">
         {/* iOS App Icon */}
         <Link href="/" className="flex items-center space-x-2.5 group">
-          <div className="w-7 h-7 rounded-[9px] bg-gradient-to-b from-[#0A84FF] to-[#0062D2] flex items-center justify-center text-white shadow-sm shadow-blue-500/30 group-hover:scale-105 transition-transform">
-            <Database className="w-4 h-4 stroke-[2.2]" />
+          <div className="w-7 h-7 rounded-[8px] overflow-hidden shadow-sm shadow-blue-500/30 group-hover:scale-105 transition-transform border border-black/10 dark:border-white/10">
+            <img src="/app-icon.jpg" alt="SQLite Studio Icon" className="w-full h-full object-cover" />
           </div>
 
           <div className="flex items-baseline space-x-1.5">
