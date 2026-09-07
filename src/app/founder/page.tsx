@@ -17,6 +17,7 @@ import {
   Laptop,
 } from 'lucide-react';
 import { MacWindow } from '../../components/Ui/MacWindow';
+import { ThemeToggle } from '../../components/Theme/ThemeToggle';
 
 export const metadata: Metadata = {
   title: 'Ammar Master (Jalaluddin Master) — Founder at ProDevOpz | SQLite Studio',
@@ -81,7 +82,7 @@ export default function FounderPage() {
       'https://prodevopz.jobsio.in',
       'https://linkedin.com/in/ammarmaster',
       'https://github.com/ammarmaster',
-      'https://twitter.com/ammarmaster',
+      'https://x.com/Ammarmaster_',
     ],
     knowsAbout: [
       'Software Architecture',
@@ -144,16 +145,8 @@ export default function FounderPage() {
             </div>
           </Link>
 
-          <nav className="flex items-center space-x-4 text-xs font-medium">
-            <Link href="/" className="hover:text-[#007AFF] transition-colors">
-              Home
-            </Link>
-            <Link href="/sql-compiler-online" className="hover:text-[#007AFF] transition-colors">
-              SQL Compiler
-            </Link>
-            <Link href="/blog" className="hover:text-[#007AFF] transition-colors">
-              Tutorials
-            </Link>
+          <div className="flex items-center space-x-3">
+            <ThemeToggle />
             <Link
               href="/app"
               className="flex items-center space-x-1.5 px-3.5 py-1.5 rounded-xl font-semibold text-white bg-[#007AFF] hover:bg-[#0062cc] transition-all shadow-sm cursor-pointer"
@@ -161,7 +154,7 @@ export default function FounderPage() {
               <Terminal className="w-3.5 h-3.5" />
               <span>Launch Studio IDE</span>
             </Link>
-          </nav>
+          </div>
         </div>
       </header>
 
@@ -294,7 +287,7 @@ export default function FounderPage() {
                   </a>
 
                   <a
-                    href="https://twitter.com/ammarmaster"
+                    href="https://x.com/Ammarmaster_"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center space-x-1.5 px-3.5 py-2 rounded-xl text-xs font-medium text-neutral-800 dark:text-neutral-200 bg-black/[0.04] dark:bg-white/[0.06] hover:bg-black/[0.08] dark:hover:bg-white/[0.1] active:scale-95 transition-all cursor-pointer"
@@ -302,7 +295,7 @@ export default function FounderPage() {
                     <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
                       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                     </svg>
-                    <span>Twitter / X</span>
+                    <span>@Ammarmaster_ on X</span>
                   </a>
                 </div>
               </div>

@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import {
   Database,
-  Sun,
-  Moon,
   Play,
   HelpCircle,
+  Trophy,
+  GraduationCap,
 } from 'lucide-react';
 import type { SchemaInfo } from '../../types';
+import { ThemeToggle } from '../Theme/ThemeToggle';
 
 interface IosNavbarProps {
   schema: SchemaInfo;
@@ -19,8 +20,8 @@ interface IosNavbarProps {
 
 export const IosNavbar: React.FC<IosNavbarProps> = ({
   schema,
-  isDarkMode,
-  onToggleTheme,
+  isDarkMode: _isDarkMode,
+  onToggleTheme: _onToggleTheme,
   onOpenDbModal,
   onRunAll,
   onShowQuickHelp,
@@ -28,9 +29,9 @@ export const IosNavbar: React.FC<IosNavbarProps> = ({
   const tableCount = schema.tables.length;
 
   return (
-    <header className="h-12 w-full px-4 flex items-center justify-between bg-white/80 dark:bg-[#1C1C1E]/80 backdrop-blur-xl border-b border-black/[0.08] dark:border-white/[0.08] select-none shrink-0 z-30">
-      {/* Left: App Identity */}
-      <div className="flex items-center space-x-3">
+    <header className="h-12 w-full px-3 md:px-4 flex items-center justify-between bg-white/80 dark:bg-[#1C1C1E]/80 backdrop-blur-xl border-b border-black/[0.08] dark:border-white/[0.08] select-none shrink-0 z-30">
+      {/* Left: App Identity & Navigation */}
+      <div className="flex items-center space-x-2 md:space-x-4">
         {/* iOS App Icon */}
         <Link href="/" className="flex items-center space-x-2.5 group">
           <div className="w-7 h-7 rounded-[8px] overflow-hidden shadow-sm shadow-blue-500/30 group-hover:scale-105 transition-transform border border-black/10 dark:border-white/10">
@@ -41,16 +42,38 @@ export const IosNavbar: React.FC<IosNavbarProps> = ({
             <h1 className="text-sm font-semibold tracking-tight text-neutral-900 dark:text-white group-hover:text-[#007AFF] transition-colors">
               SQLite Studio
             </h1>
-            <span className="text-[10px] font-medium tracking-wide text-[#007AFF] dark:text-[#0A84FF] bg-blue-500/10 px-1.5 py-0.5 rounded-full">
+            <span className="hidden sm:inline-block text-[10px] font-medium tracking-wide text-[#007AFF] dark:text-[#0A84FF] bg-blue-500/10 px-1.5 py-0.5 rounded-full">
               iOS Edition
             </span>
           </div>
         </Link>
 
+        {/* Navigation items */}
+        <nav className="hidden md:flex items-center space-x-1 ml-2">
+          <Link
+            href="/mock-interview"
+            className="flex items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-medium text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white hover:bg-black/[0.05] dark:hover:bg-white/[0.08] transition-colors"
+          >
+            <Trophy className="w-3.5 h-3.5 text-amber-500" />
+            <span>Mock Interview</span>
+            <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.2 bg-amber-500/15 text-amber-500 dark:text-amber-400 rounded-full">
+              FAANG
+            </span>
+          </Link>
+
+          <Link
+            href="/learn"
+            className="flex items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-medium text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white hover:bg-black/[0.05] dark:hover:bg-white/[0.08] transition-colors"
+          >
+            <GraduationCap className="w-3.5 h-3.5 text-emerald-500" />
+            <span>Learn SQL</span>
+          </Link>
+        </nav>
+
         {/* ProDevOpz Founder link */}
         <Link
           href="/ammar-master-jalaluddin-master"
-          className="hidden lg:inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium text-neutral-500 dark:text-neutral-400 hover:text-[#007AFF] bg-black/[0.03] dark:bg-white/[0.05] hover:bg-blue-500/10 transition-colors"
+          className="hidden xl:inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium text-neutral-500 dark:text-neutral-400 hover:text-[#007AFF] bg-black/[0.03] dark:bg-white/[0.05] hover:bg-blue-500/10 transition-colors"
           title="Created by Ammar Master (Jalaluddin Master) at ProDevOpz"
         >
           <span>by ProDevOpz</span>
@@ -58,7 +81,7 @@ export const IosNavbar: React.FC<IosNavbarProps> = ({
       </div>
 
       {/* Center: Live Database Status Pill */}
-      <div className="hidden sm:flex items-center">
+      <div className="hidden lg:flex items-center">
         <button
           type="button"
           onClick={onOpenDbModal}
@@ -76,7 +99,7 @@ export const IosNavbar: React.FC<IosNavbarProps> = ({
       </div>
 
       {/* Right: Actions */}
-      <div className="flex items-center space-x-1.5">
+      <div className="flex items-center space-x-1 md:space-x-1.5">
         {/* Quick Help */}
         <button
           type="button"
@@ -95,7 +118,7 @@ export const IosNavbar: React.FC<IosNavbarProps> = ({
           title="Manage database"
         >
           <Database className="w-3.5 h-3.5 text-[#007AFF] dark:text-[#0A84FF]" />
-          <span className="hidden md:inline">Database</span>
+          <span className="hidden sm:inline">Database</span>
         </button>
 
         {/* Run All Script */}
@@ -109,19 +132,8 @@ export const IosNavbar: React.FC<IosNavbarProps> = ({
           <span className="hidden sm:inline">Run All</span>
         </button>
 
-        {/* Dark/Light Mode Toggle */}
-        <button
-          type="button"
-          onClick={onToggleTheme}
-          className="w-8 h-8 rounded-full flex items-center justify-center text-neutral-700 dark:text-neutral-300 hover:bg-black/[0.05] dark:hover:bg-white/[0.08] active:scale-90 transition-all ml-1"
-          title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-        >
-          {isDarkMode ? (
-            <Sun className="w-4 h-4 text-[#FF9500]" />
-          ) : (
-            <Moon className="w-4 h-4 text-neutral-600" />
-          )}
-        </button>
+        {/* Pure OLED Black / Light Mode Toggle */}
+        <ThemeToggle className="ml-1" />
       </div>
     </header>
   );

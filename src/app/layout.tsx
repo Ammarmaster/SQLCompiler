@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import { ThemeProvider } from '../components/Theme/ThemeProvider';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -105,11 +106,11 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full dark" suppressHydrationWarning>
       <head>
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -117,13 +118,29 @@ export default function RootLayout({
           rel="stylesheet"
         />
         <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){
+              try {
+                var theme = localStorage.getItem('sqlite_studio_theme') || 'dark';
+                if (theme === 'dark') {
+                  document.documentElement.classList.add('dark');
+                  document.documentElement.classList.remove('light');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                  document.documentElement.classList.add('light');
+                }
+              } catch (e) {}
+            })();`,
+          }}
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
         />
       </head>
-      <body className="h-full bg-[#F2F2F7] dark:bg-[#000000] text-neutral-900 dark:text-neutral-100 antialiased selection:bg-[#007AFF]/20">
+      <body className="h-full bg-[#F2F2F7] dark:bg-[#000000] text-neutral-900 dark:text-neutral-100 antialiased selection:bg-[#007AFF]/20 transition-colors duration-200">
         <Script src="/sql-wasm.js" strategy="beforeInteractive" />
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

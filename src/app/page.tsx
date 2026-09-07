@@ -21,9 +21,12 @@ import {
   Cpu,
   Lock,
   Globe,
+  Trophy,
+  GraduationCap,
 } from 'lucide-react';
 import { MiniPlayground } from '../components/MiniPlayground';
 import { MacWindow } from '../components/Ui/MacWindow';
+import { ThemeToggle } from '../components/Theme/ThemeToggle';
 
 export const metadata: Metadata = {
   title: 'Online SQL Compiler — Run SQL Code in Browser Free | SQLite Studio',
@@ -170,34 +173,47 @@ export default function HomePage() {
             </div>
           </Link>
 
-          <nav className="hidden md:flex items-center space-x-6 text-xs font-medium text-neutral-600 dark:text-neutral-300">
+          <nav className="hidden lg:flex items-center space-x-5 text-xs font-medium text-neutral-600 dark:text-neutral-300">
             <Link href="/sql-compiler-online" className="hover:text-[#007AFF] transition-colors">
-              SQL Compiler
+              Compiler
+            </Link>
+            <Link
+              href="/mock-interview"
+              className="flex items-center space-x-1 text-amber-500 hover:text-amber-400 font-semibold transition-colors"
+            >
+              <Trophy className="w-3.5 h-3.5" />
+              <span>Mock Interview</span>
+            </Link>
+            <Link
+              href="/learn"
+              className="flex items-center space-x-1 hover:text-[#007AFF] transition-colors"
+            >
+              <GraduationCap className="w-3.5 h-3.5 text-emerald-500" />
+              <span>Learn SQL</span>
             </Link>
             <Link href="/features/er-diagram-visualizer" className="hover:text-[#007AFF] transition-colors">
               ER Diagram
             </Link>
             <Link href="/features/run-sql-line-by-line" className="hover:text-[#007AFF] transition-colors">
-              Line-by-Line Run
+              Line-by-Line
             </Link>
             <Link href="/blog" className="hover:text-[#007AFF] transition-colors">
               Tutorials
             </Link>
-            <Link href="/docs" className="hover:text-[#007AFF] transition-colors">
-              Cheatsheet
-            </Link>
-            <Link href="/ammar-master-jalaluddin-master" className="hover:text-[#007AFF] transition-colors font-semibold text-[#007AFF]">
+            <Link href="/ammar-master-jalaluddin-master" className="hover:text-[#007AFF] transition-colors font-medium">
               Founder
             </Link>
           </nav>
 
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-2.5">
+            <ThemeToggle />
             <Link
               href="/app"
-              className="flex items-center space-x-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-white bg-[#007AFF] hover:bg-[#0062cc] active:scale-95 transition-all shadow-md shadow-blue-500/25 cursor-pointer"
+              className="flex items-center space-x-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-white bg-[#007AFF] hover:bg-[#0062cc] active:scale-95 transition-all shadow-md shadow-blue-500/25 cursor-pointer"
             >
               <Terminal className="w-3.5 h-3.5" />
-              <span>Launch Studio IDE</span>
+              <span className="hidden sm:inline">Launch Studio IDE</span>
+              <span className="sm:hidden">Studio</span>
             </Link>
           </div>
         </div>
@@ -235,11 +251,18 @@ export default function HomePage() {
                 <span>Open Full SQL Compiler IDE</span>
               </Link>
               <Link
-                href="/features/er-diagram-visualizer"
+                href="/mock-interview"
+                className="flex items-center space-x-2 px-5 py-3 rounded-2xl text-sm font-semibold text-amber-500 dark:text-amber-400 bg-amber-500/10 hover:bg-amber-500/15 border border-amber-500/20 active:scale-95 transition-all shadow-xs"
+              >
+                <Trophy className="w-4 h-4" />
+                <span>FAANG Mock Interview</span>
+              </Link>
+              <Link
+                href="/learn"
                 className="flex items-center space-x-2 px-5 py-3 rounded-2xl text-sm font-medium text-neutral-800 dark:text-neutral-200 bg-white dark:bg-[#1C1C1E] hover:bg-neutral-50 dark:hover:bg-[#2C2C2E] border border-black/[0.08] dark:border-white/[0.1] active:scale-95 transition-all shadow-xs"
               >
-                <Layers className="w-4 h-4 text-purple-500" />
-                <span>Explore ER Diagram Feature</span>
+                <GraduationCap className="w-4 h-4 text-emerald-500" />
+                <span>Learn SQL Online</span>
               </Link>
             </div>
 
@@ -365,6 +388,77 @@ export default function HomePage() {
                   <span>See compiler specifications</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
+              </div>
+
+              {/* Feature 4: FAANG Mock Interview */}
+              <div className="group p-6 rounded-3xl bg-[#F2F2F7] dark:bg-[#1C1C1E] border border-black/[0.06] dark:border-white/[0.08] space-y-4 hover:shadow-xl transition-all duration-300">
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-2xl bg-amber-500/15 flex items-center justify-center text-amber-500">
+                    <Trophy className="w-5 h-5" />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-amber-500/10 text-amber-500 rounded-full">
+                    FAANG / MAANG
+                  </span>
+                </div>
+                <h3 className="text-base font-semibold text-neutral-900 dark:text-white">
+                  SQL Mock Interview Simulator
+                </h3>
+                <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                  Practice real technical interview problems from Amazon, Meta, Apple, Stripe, and Uber with automated test validation, countdown timer, hints, and optimal solutions.
+                </p>
+                <Link
+                  href="/mock-interview"
+                  className="inline-flex items-center space-x-1 text-xs font-semibold text-amber-500 hover:underline"
+                >
+                  <span>Start Mock Interview</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+
+              {/* Feature 5: Interactive Learning Hub */}
+              <div className="group p-6 rounded-3xl bg-[#F2F2F7] dark:bg-[#1C1C1E] border border-black/[0.06] dark:border-white/[0.08] space-y-4 hover:shadow-xl transition-all duration-300">
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-2xl bg-emerald-500/15 flex items-center justify-center text-emerald-500">
+                    <GraduationCap className="w-5 h-5" />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-emerald-500/10 text-emerald-500 rounded-full">
+                    5 Modules
+                  </span>
+                </div>
+                <h3 className="text-base font-semibold text-neutral-900 dark:text-white">
+                  Interactive SQL Learning Hub
+                </h3>
+                <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                  Master SQL syntax from scratch: foundations, multi-table JOINs, aggregations, GROUP BY / HAVING, CTEs, and advanced window functions with live runnable sandboxes.
+                </p>
+                <Link
+                  href="/learn"
+                  className="inline-flex items-center space-x-1 text-xs font-semibold text-emerald-500 hover:underline"
+                >
+                  <span>Explore Learning Modules</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+
+              {/* Feature 6: Pure OLED Black iOS Experience */}
+              <div className="group p-6 rounded-3xl bg-[#F2F2F7] dark:bg-[#1C1C1E] border border-black/[0.06] dark:border-white/[0.08] space-y-4 hover:shadow-xl transition-all duration-300">
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-2xl bg-blue-500/15 flex items-center justify-center text-[#007AFF]">
+                    <Sparkles className="w-5 h-5" />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-blue-500/10 text-[#007AFF] rounded-full">
+                    iOS Themed
+                  </span>
+                </div>
+                <h3 className="text-base font-semibold text-neutral-900 dark:text-white">
+                  Pure OLED Black iOS Theme
+                </h3>
+                <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                  Crafted for pure OLED black (#000000) displays with Apple Cupertino glassmorphism, native traffic lights, spring toggles, and zero eye fatigue.
+                </p>
+                <div className="pt-1">
+                  <ThemeToggle showLabel />
+                </div>
               </div>
             </div>
           </div>
@@ -675,6 +769,11 @@ export default function HomePage() {
               <li>
                 <a href="https://linkedin.com/in/ammarmaster" target="_blank" rel="noopener noreferrer" className="hover:text-[#007AFF]">
                   LinkedIn Profile
+                </a>
+              </li>
+              <li>
+                <a href="https://x.com/Ammarmaster_" target="_blank" rel="noopener noreferrer" className="hover:text-[#007AFF]">
+                  @Ammarmaster_ on X
                 </a>
               </li>
             </ul>
