@@ -186,7 +186,7 @@ export default function HomePage() {
             <Link href="/docs" className="hover:text-[#007AFF] transition-colors">
               Cheatsheet
             </Link>
-            <Link href="/founder" className="hover:text-[#007AFF] transition-colors font-semibold text-[#007AFF]">
+            <Link href="/ammar-master-jalaluddin-master" className="hover:text-[#007AFF] transition-colors font-semibold text-[#007AFF]">
               Founder
             </Link>
           </nav>
@@ -477,7 +477,7 @@ export default function HomePage() {
               subtitle="macOS Sequoia"
               headerRight={
                 <Link
-                  href="/founder"
+                  href="/ammar-master-jalaluddin-master"
                   className="text-xs font-semibold text-[#007AFF] hover:underline inline-flex items-center space-x-1"
                 >
                   <span>Full Profile</span>
@@ -515,7 +515,7 @@ export default function HomePage() {
                     </p>
 
                     <div className="pt-2 flex items-center space-x-3 text-xs font-semibold">
-                      <Link href="/founder" className="text-[#007AFF] hover:underline inline-flex items-center space-x-1">
+                      <Link href="/ammar-master-jalaluddin-master" className="text-[#007AFF] hover:underline inline-flex items-center space-x-1">
                         <span>View Founder Profile</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
@@ -659,11 +659,11 @@ export default function HomePage() {
               About &amp; Leadership
             </h4>
             <p className="text-neutral-500 leading-relaxed mb-2">
-              A product of <a href="https://prodevopz.jobsio.in" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#007AFF] hover:underline">ProDevOpz</a>, founded by <Link href="/founder" className="text-neutral-700 dark:text-neutral-300 font-semibold hover:text-[#007AFF]">Ammar Master (Jalaluddin Master)</Link>.
+              A product of <a href="https://prodevopz.jobsio.in" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#007AFF] hover:underline">ProDevOpz</a>, founded by <Link href="/ammar-master-jalaluddin-master" className="text-neutral-700 dark:text-neutral-300 font-semibold hover:text-[#007AFF]">Ammar Master (Jalaluddin Master)</Link>.
             </p>
             <ul className="space-y-1.5 pt-1">
               <li>
-                <Link href="/founder" className="hover:text-[#007AFF]">
+                <Link href="/ammar-master-jalaluddin-master" className="hover:text-[#007AFF]">
                   Founder Story &amp; Bio
                 </Link>
               </li>

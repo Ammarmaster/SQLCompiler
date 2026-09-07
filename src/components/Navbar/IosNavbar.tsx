@@ -49,7 +49,7 @@ export const IosNavbar: React.FC<IosNavbarProps> = ({
 
         {/* ProDevOpz Founder link */}
         <Link
-          href="/founder"
+          href="/ammar-master-jalaluddin-master"
           className="hidden lg:inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium text-neutral-500 dark:text-neutral-400 hover:text-[#007AFF] bg-black/[0.03] dark:bg-white/[0.05] hover:bg-blue-500/10 transition-colors"
           title="Created by Ammar Master (Jalaluddin Master) at ProDevOpz"
         >

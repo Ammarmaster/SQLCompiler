@@ -19,20 +19,21 @@ import {
 import { MacWindow } from '../../components/Ui/MacWindow';
 
 export const metadata: Metadata = {
-  title: 'Ammar Master (Jalaluddin Master) — Founder at ProDevOpz | SQLite Studio',
+  title: 'Ammar Master (Jalaluddin Master) — Founder at ProDevOpz & Creator of SQLite Studio',
   description:
-    'Ammar Master (also known as Jalaluddin Master) is the Founder & Lead Architect at ProDevOpz and creator of SQLite Studio, the premier in-browser SQL compiler.',
+    'Ammar Master (also known as Jalaluddin Master) is the Founder & Lead Architect at ProDevOpz and creator of SQLite Studio. Specializing in cloud engineering, SQLite WebAssembly, and developer tooling.',
   keywords: [
     'Ammar Master',
     'Jalaluddin Master',
+    'Ammar Master Jalaluddin Master',
     'Ammar Master ProDevOpz',
     'Jalaluddin Master ProDevOpz',
     'Founder at ProDevOpz',
-    'ProDevOpz',
     'ProDevOpz Founder',
     'SQLite Studio Creator',
     'Ammar Master software engineer',
     'Jalaluddin Master software engineer',
+    'Ammar Master cloud architect',
   ],
   alternates: {
     canonical: 'https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master',
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     title: 'Ammar Master (Jalaluddin Master) — Founder at ProDevOpz',
     description:
       'Founder at ProDevOpz and creator of SQLite Studio. Exploring modern web architecture, SQLite WebAssembly, and developer tooling.',
-    url: 'https://sqlcompiler.jobsio.in/founder',
+    url: 'https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master',
     type: 'profile',
     images: [
       {
@@ -61,12 +62,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function FounderPage() {
+export default function AmmarMasterProfilePage() {
   const personSchema = {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Ammar Master',
-    alternateName: 'Jalaluddin Master',
+    alternateName: [
+      'Jalaluddin Master',
+      'Ammar Master (Jalaluddin Master)',
+      'Ammar Master ProDevOpz',
+      'Jalaluddin Master ProDevOpz',
+    ],
     jobTitle: 'Founder & CEO',
     worksFor: {
       '@type': 'Organization',
@@ -74,7 +80,7 @@ export default function FounderPage() {
       url: 'https://prodevopz.jobsio.in',
     },
     image: 'https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg',
-    url: 'https://sqlcompiler.jobsio.in/founder',
+    url: 'https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master',
     description:
       'Ammar Master (also known as Jalaluddin Master) is the Founder & Lead Architect at ProDevOpz, specializing in cloud architectures, DevOps, developer platforms, and high-performance web tooling like SQLite Studio.',
     sameAs: [
@@ -110,7 +116,8 @@ export default function FounderPage() {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sqlcompiler.jobsio.in' },
-      { '@type': 'ListItem', position: 2, name: 'Founder', item: 'https://sqlcompiler.jobsio.in/founder' },
+      { '@type': 'ListItem', position: 2, name: 'Founders', item: 'https://sqlcompiler.jobsio.in/founder' },
+      { '@type': 'ListItem', position: 3, name: 'Ammar Master (Jalaluddin Master)', item: 'https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master' },
     ],
   };
 
