@@ -376,8 +376,8 @@ export default function MockInterviewPage() {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <Link href="/" className="flex items-center space-x-2.5 group">
-              <div className="w-8 h-8 rounded-[9px] overflow-hidden shadow-sm shadow-blue-500/20 group-hover:scale-105 transition-transform border border-black/10 dark:border-white/10">
-                <img src="/app-icon.jpg" alt="SQLite Studio Icon" className="w-full h-full object-cover" />
+              <div className="w-8 h-8 rounded-[9px] overflow-hidden group-hover:scale-105 transition-transform">
+                <img src="/app-icon.png" alt="SQLite Studio Icon" className="w-full h-full object-contain" />
               </div>
               <div className="flex items-baseline space-x-1.5">
                 <span className="font-bold text-sm tracking-tight text-neutral-900 dark:text-white">
