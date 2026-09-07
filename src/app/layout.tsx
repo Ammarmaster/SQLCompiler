@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     canonical: 'https://sqlcompiler.jobsio.in',
   },
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || 'google1360c11d4597b537',
   },
   robots: {
     index: true,
