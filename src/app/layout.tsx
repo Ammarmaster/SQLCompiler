@@ -35,20 +35,20 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
   icons: {
     icon: [
-      { url: '/favicon.ico?v=2', sizes: 'any' },
-      { url: '/app-icon.png?v=2', sizes: '512x512', type: 'image/png' },
-      { url: '/favicon.svg?v=2', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.png', sizes: '512x512', type: 'image/png' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
     ],
-    shortcut: '/favicon.ico?v=2',
+    shortcut: '/favicon.ico',
     apple: [
-      { url: '/apple-touch-icon.png?v=2', sizes: '180x180', type: 'image/png' },
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://sqlcompiler.jobsio.in',
-    siteName: 'SQLite Studio',
+    siteName: 'SQL Compiler',
     title: 'Free Online SQL Compiler & Editor — SQLite Studio',
     description:
       'Run SQL queries online with zero setup. In-browser SQLite WebAssembly engine, interactive table ER diagrams, and instant per-line query execution.',
@@ -83,10 +83,18 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'SQL Compiler',
+    alternateName: ['SQL Compiler Online', 'SQLite Studio', 'SqlOnline'],
+    url: 'https://sqlcompiler.jobsio.in',
+  };
+
   const softwareSchema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'SQLite Studio',
+    name: 'SQL Compiler — SQLite Studio',
     applicationCategory: 'DeveloperApplication',
     operatingSystem: 'Any (Web Browser)',
     offers: {
@@ -112,11 +120,11 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/app-icon.png?v=2" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
-        <link rel="shortcut icon" href="/favicon.ico?v=2" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/icon.png" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -138,6 +146,10 @@ export default function RootLayout({
               } catch (e) {}
             })();`,
           }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
         <script
           type="application/ld+json"

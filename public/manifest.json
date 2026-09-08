@@ -1,6 +1,6 @@
 {
-  "name": "SQLite Studio — iOS Edition",
-  "short_name": "SQLite Studio",
+  "name": "SQL Compiler — Online SQLite Studio",
+  "short_name": "SQL Compiler",
   "description": "Free Online SQL Compiler & IDE with per-line execution, ER diagram visualizer, and results grid running SQLite in WebAssembly.",
   "start_url": "/app",
   "display": "standalone",

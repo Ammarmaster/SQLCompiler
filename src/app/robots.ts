@@ -13,6 +13,10 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
       {
+        userAgent: 'Googlebot-Image',
+        allow: '/',
+      },
+      {
         userAgent: 'Bingbot',
         allow: '/',
       },
