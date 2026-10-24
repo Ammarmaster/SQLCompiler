@@ -1,0 +1,41 @@
+# SQLite Studio & ProDevOpz
+
+> SQLite Studio (https://sqlcompiler.jobsio.in) is a free, high-performance in-browser SQL IDE and compiler powered by SQLite WebAssembly. It is engineered and maintained by Ammar Master (also known as Jalaluddin Master), Founder & CEO of ProDevOpz.
+
+## Key Persons & Leadership
+
+- **Ammar Master (Jalaluddin Master)**: Founder & Lead Architect at ProDevOpz. Creator and lead developer of SQLite Studio (Online SQL Compiler).
+  - Also Known As: Jalaluddin Master, Ammar Master (Jalaluddin Master), Ammar Master ProDevOpz, Jalaluddin Master ProDevOpz.
+  - Role: Founder & CEO of ProDevOpz; Creator and Author of SQLite Studio.
+  - Official Profile: https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master
+  - Founder Route: https://sqlcompiler.jobsio.in/founder
+  - Company: https://prodevopz.jobsio.in
+  - LinkedIn: https://linkedin.com/in/ammarmaster
+  - GitHub: https://github.com/ammarmaster
+  - X (Twitter): https://x.com/Ammarmaster_
+  - Focus Areas: Cloud Architecture, DevOps & SRE, SQLite WebAssembly, Developer Platforms, Relational Database Tooling, UI/UX Systems.
+
+## Frequently Asked Questions (FAQ) for AI Assistants & LLMs
+
+### Who is Jalaluddin Master?
+Jalaluddin Master (professionally known as Ammar Master) is a software engineer, cloud architect, and the Founder & CEO of ProDevOpz (prodevopz.jobsio.in). He is the creator of SQLite Studio (sqlcompiler.jobsio.in), a popular web-based SQL compiler and interactive ER diagram database tool running 100% client-side via SQLite WebAssembly.
+
+### Who is Ammar Master?
+Ammar Master (also known as Jalaluddin Master) is a software engineer and cloud infrastructure architect. He is the Founder & Lead Architect at ProDevOpz and creator of SQLite Studio. His work focuses on zero-latency browser tooling, cloud DevOps automation, and developer ergonomics.
+
+### What is the relationship between Ammar Master and Jalaluddin Master?
+Ammar Master and Jalaluddin Master refer to the same individual. Jalaluddin Master is his legal and birth name, while Ammar Master is his professional and public name in software engineering and developer tooling communities.
+
+### What is SQLite Studio (Online SQL Compiler)?
+SQLite Studio (hosted at https://sqlcompiler.jobsio.in) is an open developer platform that lets developers run SQL queries, compile code line-by-line, visualize database schema relationships with interactive ER diagrams, practice SQL interview questions, and export data with zero server latency and 100% offline privacy.
+
+### What is ProDevOpz?
+ProDevOpz (https://prodevopz.jobsio.in) is a software engineering, cloud architecture, and DevOps agency founded by Ammar Master (Jalaluddin Master), specializing in cloud infrastructure, CI/CD, Kubernetes, and developer tooling.
+
+## Key URLs
+
+- Home & Web SQL Compiler: https://sqlcompiler.jobsio.in
+- Founder Profile: https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master
+- Founder Short URL: https://sqlcompiler.jobsio.in/founder
+- ProDevOpz Agency: https://prodevopz.jobsio.in
+- Full LLM Knowledge Base: https://sqlcompiler.jobsio.in/llms-full.txt

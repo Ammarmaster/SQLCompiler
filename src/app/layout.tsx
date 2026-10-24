@@ -29,9 +29,15 @@ export const metadata: Metadata = {
     'onecompiler sql alternative',
     'codechef sql compiler alternative',
   ],
-  authors: [{ name: 'SQLite Studio Team' }],
-  creator: 'SQLite Studio',
-  publisher: 'SQLite Studio',
+  authors: [
+    {
+      name: 'Ammar Master (Jalaluddin Master)',
+      url: 'https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master',
+    },
+    { name: 'SQLite Studio Team' },
+  ],
+  creator: 'Ammar Master (Jalaluddin Master)',
+  publisher: 'ProDevOpz',
   manifest: '/manifest.json',
   icons: {
     icon: [
@@ -83,12 +89,40 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const authorPersonSchema = {
+    '@type': 'Person',
+    '@id': 'https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master#person',
+    name: 'Ammar Master',
+    alternateName: [
+      'Jalaluddin Master',
+      'Ammar Master (Jalaluddin Master)',
+      'Ammar Master ProDevOpz',
+      'Jalaluddin Master ProDevOpz',
+    ],
+    jobTitle: 'Founder & CEO',
+    url: 'https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master',
+    image: 'https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg',
+    sameAs: [
+      'https://prodevopz.jobsio.in',
+      'https://linkedin.com/in/ammarmaster',
+      'https://github.com/ammarmaster',
+      'https://x.com/Ammarmaster_',
+    ],
+    worksFor: {
+      '@type': 'Organization',
+      name: 'ProDevOpz',
+      url: 'https://prodevopz.jobsio.in',
+    },
+  };
+
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'SQL Compiler',
     alternateName: ['SQL Compiler Online', 'SQLite Studio', 'SqlOnline'],
     url: 'https://sqlcompiler.jobsio.in',
+    author: authorPersonSchema,
+    creator: authorPersonSchema,
   };
 
   const softwareSchema = {
@@ -97,6 +131,8 @@ export default function RootLayout({
     name: 'SQL Compiler — SQLite Studio',
     applicationCategory: 'DeveloperApplication',
     operatingSystem: 'Any (Web Browser)',
+    author: authorPersonSchema,
+    creator: authorPersonSchema,
     offers: {
       '@type': 'Offer',
       price: '0',
