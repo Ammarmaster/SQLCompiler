@@ -18,9 +18,12 @@ import {
 } from 'lucide-react';
 import { MacWindow } from '../../components/Ui/MacWindow';
 import { ThemeToggle } from '../../components/Theme/ThemeToggle';
+import { personSchema as basePerson, organizationSchema, PERSON_URL, PERSON_ID, PERSON_IMAGE } from '../../lib/seo/entities';
 
 export const metadata: Metadata = {
-  title: 'Ammar Master (Jalaluddin Master) — Founder at ProDevOpz & Creator of SQLite Studio',
+  title: {
+    absolute: 'Ammar Master (Jalaluddin Master) — Founder & CEO of ProDevOpz | Official Profile',
+  },
   description:
     'Ammar Master (also known as Jalaluddin Master) is the Founder & Lead Architect at ProDevOpz and creator of SQLite Studio. Specializing in cloud engineering, SQLite WebAssembly, and developer tooling.',
   keywords: [
@@ -41,7 +44,13 @@ export const metadata: Metadata = {
     'Ammar Master software engineer',
     'Jalaluddin Master software engineer',
     'Ammar Master cloud architect',
+    'Ammarmaster',
+    'ProDevOpz AI',
+    'ProDevOpz AI founder',
+    'Who founded ProDevOpz',
+    'Who created sqlcompiler.jobsio.in',
   ],
+  authors: [{ name: 'Ammar Master (Jalaluddin Master)', url: 'https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master' }],
   alternates: {
     canonical: 'https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master',
   },
@@ -72,64 +81,26 @@ export const metadata: Metadata = {
 export default function AmmarMasterProfilePage() {
   const personSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Person',
-    '@id': 'https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master#person',
-    name: 'Ammar Master',
-    givenName: 'Ammar',
-    familyName: 'Master',
-    additionalName: 'Jalaluddin',
-    alternateName: [
-      'Jalaluddin Master',
-      'Ammar Master (Jalaluddin Master)',
-      'Ammar Master ProDevOpz',
-      'Jalaluddin Master ProDevOpz',
-    ],
-    jobTitle: 'Founder & CEO',
-    disambiguatingDescription:
-      'Software Engineer, Cloud & DevOps Architect, Founder & CEO at ProDevOpz, and Creator of SQLite Studio.',
-    worksFor: {
-      '@type': 'Organization',
-      name: 'ProDevOpz',
-      url: 'https://prodevopz.jobsio.in',
-    },
-    founder: [
-      {
-        '@type': 'Organization',
-        name: 'ProDevOpz',
-        url: 'https://prodevopz.jobsio.in',
-      },
-    ],
+    ...basePerson,
+    worksFor: organizationSchema,
+    founder: organizationSchema,
     creator: [
-      {
-        '@type': 'SoftwareApplication',
-        name: 'SQLite Studio',
-        url: 'https://sqlcompiler.jobsio.in',
-      },
+      { '@type': 'SoftwareApplication', name: 'SQLite Studio (Online SQL Compiler)', url: 'https://sqlcompiler.jobsio.in' },
     ],
-    hasOccupation: {
-      '@type': 'Occupation',
-      name: 'Cloud Architect & Software Engineer',
-      skills: 'Cloud Architecture, DevOps, CI/CD, SQLite WebAssembly, Next.js, Database Systems',
-    },
-    image: 'https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg',
-    url: 'https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master',
-    mainEntityOfPage: 'https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master',
-    description:
-      'Ammar Master (also known as Jalaluddin Master) is the Founder & Lead Architect at ProDevOpz, specializing in cloud architectures, DevOps, developer platforms, and high-performance web tooling like SQLite Studio.',
-    sameAs: [
-      'https://prodevopz.jobsio.in',
-      'https://linkedin.com/in/ammarmaster',
-      'https://github.com/ammarmaster',
-      'https://x.com/Ammarmaster_',
-    ],
-    knowsAbout: [
-      'Software Architecture',
-      'Cloud Engineering',
-      'DevOps & CI/CD',
-      'Database Systems & SQL',
-      'WebAssembly (WASM)',
-      'Product Design & UI/UX',
-    ],
+  };
+
+  const profilePageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    '@id': `${PERSON_URL}#profilepage`,
+    url: PERSON_URL,
+    name: 'Ammar Master (Jalaluddin Master) — Official Profile',
+    dateCreated: '2026-09-01T00:00:00+05:30',
+    dateModified: '2026-11-08T00:00:00+05:30',
+    inLanguage: 'en',
+    primaryImageOfPage: PERSON_IMAGE,
+    mainEntity: { '@id': PERSON_ID },
+    about: { '@id': PERSON_ID },
   };
 
   const imageSchema = {
@@ -190,6 +161,22 @@ export default function AmmarMasterProfilePage() {
           text: 'He built SQLite Studio (Online SQL Compiler at sqlcompiler.jobsio.in), an in-browser relational database environment with line-by-line query execution and automatic ER diagram visualization, and founded ProDevOpz (prodevopz.jobsio.in).',
         },
       },
+      {
+        '@type': 'Question',
+        name: 'Who is the founder of ProDevOpz (ProDevOpz AI)?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'ProDevOpz (also written ProDevOpz AI) was founded by Ammar Master, also known as Jalaluddin Master, who serves as its Founder & CEO. ProDevOpz builds cloud, DevOps and AI-assisted developer tools, including the SQLite Studio online SQL compiler.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How can I contact Ammar Master (Jalaluddin Master)?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Ammar Master can be reached through LinkedIn (linkedin.com/in/ammarmaster), GitHub (github.com/ammarmaster), X / Twitter (@Ammarmaster_), or the ProDevOpz website (prodevopz.jobsio.in).',
+        },
+      },
     ],
   };
 
@@ -198,6 +185,10 @@ export default function AmmarMasterProfilePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageSchema) }}
       />
       <script
         type="application/ld+json"
@@ -504,7 +495,27 @@ export default function AmmarMasterProfilePage() {
                 <span>What is SQLite Studio &amp; ProDevOpz?</span>
               </h3>
               <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                <strong>SQLite Studio</strong> is a zero-latency, client-side SQL IDE with automatic ER diagrams and line-by-line execution. <strong>ProDevOpz</strong> (<a href="https://prodevopz.jobsio.in" target="_blank" rel="noopener noreferrer" className="text-[#007AFF] hover:underline">prodevopz.jobsio.in</a>) is the engineering parent agency founded by Ammar providing cloud engineering and dev tools.
+                <strong>SQLite Studio</strong> is a zero-latency, client-side SQL IDE with automatic ER diagrams and line-by-line execution. <strong>ProDevOpz</strong> (<a href="https://prodevopz.jobsio.in" target="_blank" rel="noopener noreferrer" className="text-[#007AFF] hover:underline">prodevopz.jobsio.in</a>) is the engineering parent agency founded by Ammar providing cloud engineering and dev tools. <Link href="/prodevopz" className="text-[#007AFF] hover:underline">Read the ProDevOpz profile</Link>.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-3xl bg-white dark:bg-[#1C1C1E] border border-black/[0.06] dark:border-white/[0.08] space-y-2">
+              <h3 className="font-bold text-sm text-neutral-900 dark:text-white flex items-center space-x-2">
+                <span className="w-2 h-2 rounded-full bg-[#FF2D55]" />
+                <span>Who is the founder of ProDevOpz (ProDevOpz AI)?</span>
+              </h3>
+              <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                ProDevOpz (also written <strong>ProDevOpz AI</strong>) was founded by <strong>Ammar Master</strong>, also known as <strong>Jalaluddin Master</strong>, who serves as its Founder &amp; CEO. ProDevOpz builds cloud, DevOps and AI-assisted developer tools, including the SQLite Studio online SQL compiler.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-3xl bg-white dark:bg-[#1C1C1E] border border-black/[0.06] dark:border-white/[0.08] space-y-2">
+              <h3 className="font-bold text-sm text-neutral-900 dark:text-white flex items-center space-x-2">
+                <span className="w-2 h-2 rounded-full bg-[#5AC8FA]" />
+                <span>How can I contact Ammar Master (Jalaluddin Master)?</span>
+              </h3>
+              <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                Reach Ammar Master on <a href="https://linkedin.com/in/ammarmaster" target="_blank" rel="noopener noreferrer me" className="text-[#007AFF] hover:underline">LinkedIn</a>, <a href="https://github.com/ammarmaster" target="_blank" rel="noopener noreferrer me" className="text-[#007AFF] hover:underline">GitHub</a>, <a href="https://x.com/Ammarmaster_" target="_blank" rel="noopener noreferrer me" className="text-[#007AFF] hover:underline">X / Twitter (@Ammarmaster_)</a>, or through the <a href="https://prodevopz.jobsio.in" target="_blank" rel="noopener noreferrer" className="text-[#007AFF] hover:underline">ProDevOpz website</a>.
               </p>
             </div>
           </div>

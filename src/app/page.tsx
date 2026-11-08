@@ -762,6 +762,11 @@ export default function HomePage() {
                 </Link>
               </li>
               <li>
+                <Link href="/prodevopz" className="hover:text-[#007AFF]">
+                  About ProDevOpz (ProDevOpz AI)
+                </Link>
+              </li>
+              <li>
                 <a href="https://prodevopz.jobsio.in" target="_blank" rel="noopener noreferrer" className="hover:text-[#007AFF]">
                   ProDevOpz Agency
                 </a>

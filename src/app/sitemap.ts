@@ -38,20 +38,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/ammar-master-jalaluddin-master`,
       lastModified: now,
+      images: [`${baseUrl}/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg`],
       changeFrequency: 'weekly',
       priority: 0.95,
     },
     {
-      url: `${baseUrl}/ammar-master`,
+      url: `${baseUrl}/prodevopz`,
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/founder`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.85,
     },
     {
       url: `${baseUrl}/features/er-diagram-visualizer`,

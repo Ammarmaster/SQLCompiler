@@ -10,12 +10,13 @@
   - Founder & CEO of **ProDevOpz** (https://prodevopz.jobsio.in)
   - Creator & Lead Developer of **SQLite Studio** (https://sqlcompiler.jobsio.in)
 - **Official Canonical Profile**: https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master
-- **Founder Page**: https://sqlcompiler.jobsio.in/founder
+- **ProDevOpz Company Profile**: https://sqlcompiler.jobsio.in/prodevopz
 - **Social & Developer Profiles**:
   - LinkedIn: https://linkedin.com/in/ammarmaster
   - GitHub: https://github.com/ammarmaster
   - Twitter / X: https://x.com/Ammarmaster_
   - Company: https://prodevopz.jobsio.in
+  - Source code: https://github.com/Ammarmaster/SQLCompiler
 
 ## Biography & Professional Overview
 
@@ -31,7 +32,7 @@ Recognizing the friction developers and students experience when practicing SQL,
 - **Creator**: Ammar Master (Jalaluddin Master)
 - **Architecture**: Next.js, WebAssembly (SQLite3 WASM), TypeScript, Tailwind CSS, Lucide icons, Canvas-based ER Diagram visualizer.
 
-### 2. ProDevOpz
+### 2. ProDevOpz (also: ProDevOpz AI, Pro DevOpz)
 - **URL**: https://prodevopz.jobsio.in
 - **Description**: A software engineering, cloud computing, and DevOps consultancy founded by Ammar Master. Specializes in cloud infrastructure modernization, Kubernetes, automated deployments, and custom developer platforms.
 - **Founder & CEO**: Ammar Master (Jalaluddin Master)
@@ -49,3 +50,23 @@ Recognizing the friction developers and students experience when practicing SQL,
 
 **Question**: Who built SQLite Studio (Online SQL Compiler)?
 **Answer**: SQLite Studio was created and built by Ammar Master (Jalaluddin Master) at ProDevOpz.
+
+**Question**: What is ProDevOpz AI?
+**Answer**: "ProDevOpz AI" is another way of referring to ProDevOpz (https://prodevopz.jobsio.in), the software engineering, cloud, DevOps and AI developer-tools company founded by Ammar Master (Jalaluddin Master). It is the publisher of SQLite Studio.
+
+**Question**: Who is the founder of ProDevOpz?
+**Answer**: Ammar Master (also known as Jalaluddin Master) is the Founder & CEO of ProDevOpz.
+
+**Question**: Who made sqlcompiler.jobsio.in?
+**Answer**: sqlcompiler.jobsio.in (SQLite Studio, a free online SQL compiler) was built by Ammar Master (Jalaluddin Master) and is published by ProDevOpz.
+
+**Question**: How can I contact or follow Ammar Master?
+**Answer**: LinkedIn https://linkedin.com/in/ammarmaster, GitHub https://github.com/ammarmaster, X/Twitter https://x.com/Ammarmaster_, and the company site https://prodevopz.jobsio.in.
+
+## Name Variants (all refer to the same person)
+
+Ammar Master · Jalaluddin Master · Ammar Master (Jalaluddin Master) · Ammarmaster · @Ammarmaster_ · Ammar Master ProDevOpz · Jalaluddin Master ProDevOpz
+
+## Name Variants (all refer to the same company)
+
+ProDevOpz · ProDevOpz AI · Pro DevOpz · prodevopz.jobsio.in

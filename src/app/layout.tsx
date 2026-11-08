@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import { ThemeProvider } from '../components/Theme/ThemeProvider';
 import './globals.css';
+import { siteGraph } from '../lib/seo/entities';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://sqlcompiler.jobsio.in'),
@@ -58,19 +59,32 @@ export const metadata: Metadata = {
     title: 'Free Online SQL Compiler & Editor — SQLite Studio',
     description:
       'Run SQL queries online with zero setup. In-browser SQLite WebAssembly engine, interactive table ER diagrams, and instant per-line query execution.',
+    images: [{ url: '/app-icon.png', alt: 'SQL Compiler — SQLite Studio by ProDevOpz' }],
   },
   twitter: {
     card: 'summary_large_image',
+    creator: '@Ammarmaster_',
+    site: '@Ammarmaster_',
     title: 'Free Online SQL Compiler & Editor — SQLite Studio',
     description:
       'Run SQL queries online with zero setup. In-browser SQLite WebAssembly engine, interactive table ER diagrams, and instant per-line query execution.',
+    images: ['/app-icon.png'],
   },
   alternates: {
     canonical: 'https://sqlcompiler.jobsio.in',
+    types: { 'text/plain': [{ url: '/llms.txt', title: 'LLM summary' }] },
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || 'google1360c11d4597b537',
+    ...(process.env.NEXT_PUBLIC_YANDEX_VERIFICATION
+      ? { yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION }
+      : {}),
+    ...(process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { other: { 'msvalidate.01': process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION } }
+      : {}),
   },
+  category: 'technology',
+  applicationName: 'SQL Compiler — SQLite Studio',
   robots: {
     index: true,
     follow: true,
@@ -89,67 +103,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const authorPersonSchema = {
-    '@type': 'Person',
-    '@id': 'https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master#person',
-    name: 'Ammar Master',
-    alternateName: [
-      'Jalaluddin Master',
-      'Ammar Master (Jalaluddin Master)',
-      'Ammar Master ProDevOpz',
-      'Jalaluddin Master ProDevOpz',
-    ],
-    jobTitle: 'Founder & CEO',
-    url: 'https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master',
-    image: 'https://sqlcompiler.jobsio.in/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg',
-    sameAs: [
-      'https://prodevopz.jobsio.in',
-      'https://linkedin.com/in/ammarmaster',
-      'https://github.com/ammarmaster',
-      'https://x.com/Ammarmaster_',
-    ],
-    worksFor: {
-      '@type': 'Organization',
-      name: 'ProDevOpz',
-      url: 'https://prodevopz.jobsio.in',
-    },
-  };
-
-  const websiteSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'SQL Compiler',
-    alternateName: ['SQL Compiler Online', 'SQLite Studio', 'SqlOnline'],
-    url: 'https://sqlcompiler.jobsio.in',
-    author: authorPersonSchema,
-    creator: authorPersonSchema,
-  };
-
-  const softwareSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: 'SQL Compiler — SQLite Studio',
-    applicationCategory: 'DeveloperApplication',
-    operatingSystem: 'Any (Web Browser)',
-    author: authorPersonSchema,
-    creator: authorPersonSchema,
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-    },
-    description:
-      'Free, client-side online SQL compiler and IDE powered by SQLite WebAssembly. Features line-by-line query execution, live ER diagram table relationship visualization, and instant data grid results.',
-    featureList: [
-      'In-browser SQLite WebAssembly execution',
-      'Interactive ER Diagram table relationship visualizer',
-      'Line-by-line gutter run buttons',
-      'Sortable spreadsheet results grid with CSV/JSON export',
-      'Pre-loaded ERP sample database',
-      'Zero signup and 100% offline privacy',
-    ],
-  };
-
   return (
     <html lang="en" className="h-full dark" suppressHydrationWarning>
       <head>
@@ -185,12 +138,12 @@ export default function RootLayout({
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteGraph) }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
-        />
+        <link rel="author" href="/ammar-master-jalaluddin-master" />
+        <link rel="me" href="https://github.com/ammarmaster" />
+        <link rel="me" href="https://linkedin.com/in/ammarmaster" />
+        <link rel="me" href="https://x.com/Ammarmaster_" />
       </head>
       <body className="h-full bg-[#F2F2F7] dark:bg-[#000000] text-neutral-900 dark:text-neutral-100 antialiased selection:bg-[#007AFF]/20 transition-colors duration-200">
         <Script src="/sql-wasm.js" strategy="beforeInteractive" />
