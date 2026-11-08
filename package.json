@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "oxlint",
-    "indexnow": "node scripts/indexnow.mjs"
+    "indexnow": "node scripts/indexnow.mjs",
+    "bing-submit": "node scripts/bing-submit.mjs"
   },
   "dependencies": {
     "@codemirror/autocomplete": "^6.20.3",
